@@ -2,7 +2,7 @@ name: "distill_webpage"
 title: "Lefkios Blog"
 description: |
   Lefkios Paikousis Blog. This is where the description in the yaml file goes.
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
