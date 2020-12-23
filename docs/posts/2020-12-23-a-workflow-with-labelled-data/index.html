@@ -87,7 +87,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Lefkios Blog: A workflow with labelled data</title>
 
-<meta property="description" itemprop="description" content="A short description of the post."/>
+<meta property="description" itemprop="description" content="I love labelled data"/>
 
 
 <!--  https://schema.org/Article -->
@@ -98,20 +98,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Lefkios Blog: A workflow with labelled data"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="A short description of the post."/>
+<meta property="og:description" content="I love labelled data"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Lefkios Blog"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Lefkios Blog: A workflow with labelled data"/>
-<meta property="twitter:description" content="A short description of the post."/>
+<meta property="twitter:description" content="I love labelled data"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["A workflow with labelled data"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["12-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["A workflow with labelled data"]},{"type":"character","attributes":{},"value":["I love labelled data"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["12-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2003,6 +2003,40 @@ document.addEventListener('DOMContentLoaded', function() {
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+<style type="text/css">
+/* Taken from Mock (2020, Aug. 1). The Mockup Blog: Building a blog with distill. Retrieved from https://themockup.blog/posts/2020-08-01-building-a-blog-with-distill/ */
+
+/* Import fonts from Google's API */
+@import url('https://fonts.googleapis.com/css2?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+
+
+/* Use specific font in the body of the text */
+html, body, p {
+  
+  font-family: 'Lato', sans-serif;
+  font-weight: 200;
+  line-height: 1.3; 
+  font-size: 1.0em;
+  color: #333333;
+  font-style: normal;
+  
+}
+/* Change the appearance of in-line code chunks */
+code {
+  font-family: 'Fira Mono', sans-serif;
+  color: #383838;
+  background: #F5F5F5;
+  font-weight: 400;
+  font-size: 0.9em;
+}
+
+
+d-code {
+  /*background: grey;*/
+  font-family: monospace;
+}
+</style>
 <!--/radix_placeholder_site_in_header-->
 
 
@@ -2013,7 +2047,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"A workflow with labelled data","description":"A short description of the post.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-23T00:00:00.000+03:00","citationText":"Paikousis, 2020"}
+{"title":"A workflow with labelled data","description":"I love labelled data","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-23T00:00:00.000+03:00","citationText":"Paikousis, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2039,7 +2073,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1>A workflow with labelled data</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>A short description of the post.</p></p>
+<p><p>I love labelled data</p></p>
 </div>
 
 <div class="d-byline">
@@ -2049,14 +2083,35 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#the-libraries">The Libraries</a></li>
+<li><a href="#read-the-data-and-data-dictionary">Read the data and data-dictionary</a></li>
+<li><a href="#factors-and-order-of-the-value-labels">Factors and order of the value labels</a></li>
+<li><a href="#plots">Plots</a>
+<ul>
+<li><a href="#use-the-labels_list-when-defining-plot-labels.">Use the <code>labels_list</code> when defining plot labels.</a></li>
+<li><a href="#use-the-labels_vector-in-the-facet_warp">Use the <code>labels_vector</code> in the <code>facet_warp</code></a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
 <h3 id="the-libraries">The Libraries</h3>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://larmarange.github.io/labelled/'>labelled</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/ddsjoberg/gtsummary'>gtsummary</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>I usually work with survey data that come in the form of a spreadsheet (usually from google forms).</p>
-<p>The variable names are long and highly descriptive of what information the variable contains, but that long of a anme, makes it very hard to work with while wrangling the dataset.</p>
+<p>The variable names are long and highly descriptive of what information the variable contains, but that long of a name, makes it very hard to work with while wrangling the dataset.</p>
 <p>What I want is to keep the original variable name as a <code>label</code> and rename the variable names with new <code>names</code></p>
-<p>To demontrate my workflow, I created a sample dataset to work with. You can download it <code>here</code>.</p>
+<p>To demontrate my workflow, I created a sample dataset to work with. You can download it <a href="https://github.com/lefkiospaikousis/distill_webpage/blob/master/_posts/2020-12-23-a-workflow-with-labelled-data/sample_survey.xlsx">from github</a></p>
 <p>The dataset is stored as an excel file, and has two worksheets.</p>
 <ul>
 <li>In the worksheet <code>data</code> you can see the raw data, and<br />
@@ -2070,6 +2125,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3 id="read-the-data-and-data-dictionary">Read the data and data-dictionary</h3>
 <p>Let’s read in the data</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>path</span> <span class='op'>=</span> <span class='st'>"sample_survey.xlsx"</span>
+<span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span>
+
+<span class='fu'>glimpse</span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>Rows: 7
 Columns: 6
 $ id                                   &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7
@@ -2082,6 +2144,12 @@ $ `How satisfied you are overall`      &lt;chr&gt; &quot;Very satisfied&quot;, &
 <p>The dataset contains 6 columns</p>
 <p>Read in the <code>labels</code> worksheet for the column dictionary</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>dta_labels</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span>, sheet <span class='op'>=</span> <span class='st'>"labels"</span><span class='op'>)</span>
+
+<span class='va'>dta_labels</span>
+</code></pre>
+</div>
 <pre><code># A tibble: 6 x 2
   label                              name      
   &lt;chr&gt;                              &lt;chr&gt;     
@@ -2101,6 +2169,17 @@ $ `How satisfied you are overall`      &lt;chr&gt; &quot;Very satisfied&quot;, &
 <li>Also, save a <code>label_vector</code> named vector with the same informationas the <code>label_list</code></li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>dta_labels</span><span class='op'>$</span><span class='va'>name</span>
+
+<span class='fu'><a href='http://larmarange.github.io/labelled/reference/var_label.html'>var_label</a></span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>dta_labels</span><span class='op'>$</span><span class='va'>label</span>
+
+<span class='va'>labels_list</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://larmarange.github.io/labelled/reference/var_label.html'>var_label</a></span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span>
+<span class='va'>labels_vector</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='http://larmarange.github.io/labelled/reference/var_label.html'>var_label</a></span><span class='op'>(</span><span class='va'>dta</span>, unlist <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='va'>labels_list</span>
+</code></pre>
+</div>
 <pre><code>$id
 [1] &quot;id&quot;
 
@@ -2121,6 +2200,10 @@ $overall
 </div>
 <p>Have a look at the dataset names now</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>glimpse</span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>Rows: 7
 Columns: 6
 $ id         &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7
@@ -2132,11 +2215,19 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
 </div>
 <p>Now its very easy to keep using the variable names in your code, but variable labels are rendered in the tables when using <code>{gtsummary}</code> for example.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>dta</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>overall</span>,<span class='va'>restaurant</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://www.danieldsjoberg.com/gtsummary//reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span>
+    by  <span class='op'>=</span> <span class='va'>restaurant</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#svoislpvnp .gt_table {
+#jadyyslukn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2161,7 +2252,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-left-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_heading {
+#jadyyslukn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2173,7 +2264,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_title {
+#jadyyslukn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2183,7 +2274,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-bottom-width: 0;
 }
 
-#svoislpvnp .gt_subtitle {
+#jadyyslukn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2193,13 +2284,13 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-width: 0;
 }
 
-#svoislpvnp .gt_bottom_border {
+#jadyyslukn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_col_headings {
+#jadyyslukn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2214,7 +2305,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_col_heading {
+#jadyyslukn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2234,7 +2325,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   overflow-x: hidden;
 }
 
-#svoislpvnp .gt_column_spanner_outer {
+#jadyyslukn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2246,15 +2337,15 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 4px;
 }
 
-#svoislpvnp .gt_column_spanner_outer:first-child {
+#jadyyslukn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#svoislpvnp .gt_column_spanner_outer:last-child {
+#jadyyslukn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#svoislpvnp .gt_column_spanner {
+#jadyyslukn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2266,7 +2357,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   width: 100%;
 }
 
-#svoislpvnp .gt_group_heading {
+#jadyyslukn .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2288,7 +2379,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   vertical-align: middle;
 }
 
-#svoislpvnp .gt_empty_group_heading {
+#jadyyslukn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2303,15 +2394,15 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   vertical-align: middle;
 }
 
-#svoislpvnp .gt_from_md > :first-child {
+#jadyyslukn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#svoislpvnp .gt_from_md > :last-child {
+#jadyyslukn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#svoislpvnp .gt_row {
+#jadyyslukn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2330,7 +2421,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   overflow-x: hidden;
 }
 
-#svoislpvnp .gt_stub {
+#jadyyslukn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2342,7 +2433,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-left: 12px;
 }
 
-#svoislpvnp .gt_summary_row {
+#jadyyslukn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2352,7 +2443,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 5px;
 }
 
-#svoislpvnp .gt_first_summary_row {
+#jadyyslukn .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2362,7 +2453,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_grand_summary_row {
+#jadyyslukn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2372,7 +2463,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 5px;
 }
 
-#svoislpvnp .gt_first_grand_summary_row {
+#jadyyslukn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2382,11 +2473,11 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_striped {
+#jadyyslukn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#svoislpvnp .gt_table_body {
+#jadyyslukn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2395,7 +2486,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-bottom-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_footnotes {
+#jadyyslukn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2409,13 +2500,13 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_footnote {
+#jadyyslukn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#svoislpvnp .gt_sourcenotes {
+#jadyyslukn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2429,46 +2520,46 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#svoislpvnp .gt_sourcenote {
+#jadyyslukn .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#svoislpvnp .gt_left {
+#jadyyslukn .gt_left {
   text-align: left;
 }
 
-#svoislpvnp .gt_center {
+#jadyyslukn .gt_center {
   text-align: center;
 }
 
-#svoislpvnp .gt_right {
+#jadyyslukn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#svoislpvnp .gt_font_normal {
+#jadyyslukn .gt_font_normal {
   font-weight: normal;
 }
 
-#svoislpvnp .gt_font_bold {
+#jadyyslukn .gt_font_bold {
   font-weight: bold;
 }
 
-#svoislpvnp .gt_font_italic {
+#jadyyslukn .gt_font_italic {
   font-style: italic;
 }
 
-#svoislpvnp .gt_super {
+#jadyyslukn .gt_super {
   font-size: 65%;
 }
 
-#svoislpvnp .gt_footnote_marks {
+#jadyyslukn .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="svoislpvnp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="jadyyslukn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -2552,11 +2643,23 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
 One way to accomplish this is to turn the variable into a factor. However, one problem arises now, where the <code>label</code> for the <code>overall</code> variable is gone. That is an inherent behaviour of <code>dplyr::mutate()</code> where it strips down these attributes off the variables that you manipulate.</p>
 <p>See the <code>overall</code> title in the table below</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>dta</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    overall  <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>overall</span>,levels  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very dissatisfied"</span>, <span class='st'>"Dissatisfied"</span>, <span class='st'>"Neutral"</span>, <span class='st'>"Satisfied"</span>,
+                                           <span class='st'>"Very satisfied"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>overall</span>,<span class='va'>restaurant</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://www.danieldsjoberg.com/gtsummary//reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span>
+    by  <span class='op'>=</span> <span class='va'>restaurant</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#owsjnwfvfi .gt_table {
+#nomkgrqumo .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2581,7 +2684,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-left-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_heading {
+#nomkgrqumo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2593,7 +2696,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_title {
+#nomkgrqumo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2603,7 +2706,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-bottom-width: 0;
 }
 
-#owsjnwfvfi .gt_subtitle {
+#nomkgrqumo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2613,13 +2716,13 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-width: 0;
 }
 
-#owsjnwfvfi .gt_bottom_border {
+#nomkgrqumo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_col_headings {
+#nomkgrqumo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2634,7 +2737,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_col_heading {
+#nomkgrqumo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2654,7 +2757,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   overflow-x: hidden;
 }
 
-#owsjnwfvfi .gt_column_spanner_outer {
+#nomkgrqumo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2666,15 +2769,15 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 4px;
 }
 
-#owsjnwfvfi .gt_column_spanner_outer:first-child {
+#nomkgrqumo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#owsjnwfvfi .gt_column_spanner_outer:last-child {
+#nomkgrqumo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#owsjnwfvfi .gt_column_spanner {
+#nomkgrqumo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2686,7 +2789,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   width: 100%;
 }
 
-#owsjnwfvfi .gt_group_heading {
+#nomkgrqumo .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2708,7 +2811,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   vertical-align: middle;
 }
 
-#owsjnwfvfi .gt_empty_group_heading {
+#nomkgrqumo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2723,15 +2826,15 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   vertical-align: middle;
 }
 
-#owsjnwfvfi .gt_from_md > :first-child {
+#nomkgrqumo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#owsjnwfvfi .gt_from_md > :last-child {
+#nomkgrqumo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#owsjnwfvfi .gt_row {
+#nomkgrqumo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2750,7 +2853,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   overflow-x: hidden;
 }
 
-#owsjnwfvfi .gt_stub {
+#nomkgrqumo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2762,7 +2865,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-left: 12px;
 }
 
-#owsjnwfvfi .gt_summary_row {
+#nomkgrqumo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2772,7 +2875,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 5px;
 }
 
-#owsjnwfvfi .gt_first_summary_row {
+#nomkgrqumo .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2782,7 +2885,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_grand_summary_row {
+#nomkgrqumo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2792,7 +2895,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 5px;
 }
 
-#owsjnwfvfi .gt_first_grand_summary_row {
+#nomkgrqumo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2802,11 +2905,11 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_striped {
+#nomkgrqumo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#owsjnwfvfi .gt_table_body {
+#nomkgrqumo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2815,7 +2918,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-bottom-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_footnotes {
+#nomkgrqumo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2829,13 +2932,13 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_footnote {
+#nomkgrqumo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#owsjnwfvfi .gt_sourcenotes {
+#nomkgrqumo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2849,46 +2952,46 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#owsjnwfvfi .gt_sourcenote {
+#nomkgrqumo .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#owsjnwfvfi .gt_left {
+#nomkgrqumo .gt_left {
   text-align: left;
 }
 
-#owsjnwfvfi .gt_center {
+#nomkgrqumo .gt_center {
   text-align: center;
 }
 
-#owsjnwfvfi .gt_right {
+#nomkgrqumo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#owsjnwfvfi .gt_font_normal {
+#nomkgrqumo .gt_font_normal {
   font-weight: normal;
 }
 
-#owsjnwfvfi .gt_font_bold {
+#nomkgrqumo .gt_font_bold {
   font-weight: bold;
 }
 
-#owsjnwfvfi .gt_font_italic {
+#nomkgrqumo .gt_font_italic {
   font-style: italic;
 }
 
-#owsjnwfvfi .gt_super {
+#nomkgrqumo .gt_super {
   font-size: 65%;
 }
 
-#owsjnwfvfi .gt_footnote_marks {
+#nomkgrqumo .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="owsjnwfvfi" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="nomkgrqumo" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -2970,11 +3073,27 @@ One way to accomplish this is to turn the variable into a factor. However, one p
 <p>You can easily solve this, using the <code>labelled::set_variable_names()</code> function. This function can be used in the <code>dplyr</code> chain since it takes a <code>data</code> argument.<br />
 What you need to use is the <code>labels_list</code> we have saved before and pass it in the <code>.labels</code> argument of the <code>set_variable_names()</code></p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>dta</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    overall  <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>overall</span>,levels  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very dissatisfied"</span>, 
+                                           <span class='st'>"Dissatisfied"</span>, 
+                                           <span class='st'>"Neutral"</span>, 
+                                           <span class='st'>"Satisfied"</span>,
+                                           <span class='st'>"Very satisfied"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://larmarange.github.io/labelled/reference/var_label.html'>set_variable_labels</a></span><span class='op'>(</span>.labels<span class='op'>=</span><span class='va'>labels_list</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='co'>#After mutating, the label information of the `overall` variable is gone.</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>overall</span>,<span class='va'>restaurant</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://www.danieldsjoberg.com/gtsummary//reference/tbl_summary.html'>tbl_summary</a></span><span class='op'>(</span>
+    by  <span class='op'>=</span> <span class='va'>restaurant</span>
+  <span class='op'>)</span> 
+</code></pre>
+</div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#iyghykuxii .gt_table {
+#zuizqcuzfn .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2999,7 +3118,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-left-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_heading {
+#zuizqcuzfn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3011,7 +3130,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_title {
+#zuizqcuzfn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3021,7 +3140,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-bottom-width: 0;
 }
 
-#iyghykuxii .gt_subtitle {
+#zuizqcuzfn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3031,13 +3150,13 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-width: 0;
 }
 
-#iyghykuxii .gt_bottom_border {
+#zuizqcuzfn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_col_headings {
+#zuizqcuzfn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3052,7 +3171,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_col_heading {
+#zuizqcuzfn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3072,7 +3191,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   overflow-x: hidden;
 }
 
-#iyghykuxii .gt_column_spanner_outer {
+#zuizqcuzfn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3084,15 +3203,15 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 4px;
 }
 
-#iyghykuxii .gt_column_spanner_outer:first-child {
+#zuizqcuzfn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iyghykuxii .gt_column_spanner_outer:last-child {
+#zuizqcuzfn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iyghykuxii .gt_column_spanner {
+#zuizqcuzfn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3104,7 +3223,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   width: 100%;
 }
 
-#iyghykuxii .gt_group_heading {
+#zuizqcuzfn .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3126,7 +3245,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   vertical-align: middle;
 }
 
-#iyghykuxii .gt_empty_group_heading {
+#zuizqcuzfn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3141,15 +3260,15 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   vertical-align: middle;
 }
 
-#iyghykuxii .gt_from_md > :first-child {
+#zuizqcuzfn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iyghykuxii .gt_from_md > :last-child {
+#zuizqcuzfn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iyghykuxii .gt_row {
+#zuizqcuzfn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3168,7 +3287,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   overflow-x: hidden;
 }
 
-#iyghykuxii .gt_stub {
+#zuizqcuzfn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3180,7 +3299,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-left: 12px;
 }
 
-#iyghykuxii .gt_summary_row {
+#zuizqcuzfn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3190,7 +3309,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 5px;
 }
 
-#iyghykuxii .gt_first_summary_row {
+#zuizqcuzfn .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3200,7 +3319,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_grand_summary_row {
+#zuizqcuzfn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3210,7 +3329,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 5px;
 }
 
-#iyghykuxii .gt_first_grand_summary_row {
+#zuizqcuzfn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3220,11 +3339,11 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_striped {
+#zuizqcuzfn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iyghykuxii .gt_table_body {
+#zuizqcuzfn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3233,7 +3352,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-bottom-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_footnotes {
+#zuizqcuzfn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3247,13 +3366,13 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_footnote {
+#zuizqcuzfn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#iyghykuxii .gt_sourcenotes {
+#zuizqcuzfn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3267,46 +3386,46 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#iyghykuxii .gt_sourcenote {
+#zuizqcuzfn .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#iyghykuxii .gt_left {
+#zuizqcuzfn .gt_left {
   text-align: left;
 }
 
-#iyghykuxii .gt_center {
+#zuizqcuzfn .gt_center {
   text-align: center;
 }
 
-#iyghykuxii .gt_right {
+#zuizqcuzfn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iyghykuxii .gt_font_normal {
+#zuizqcuzfn .gt_font_normal {
   font-weight: normal;
 }
 
-#iyghykuxii .gt_font_bold {
+#zuizqcuzfn .gt_font_bold {
   font-weight: bold;
 }
 
-#iyghykuxii .gt_font_italic {
+#zuizqcuzfn .gt_font_italic {
   font-style: italic;
 }
 
-#iyghykuxii .gt_super {
+#zuizqcuzfn .gt_super {
   font-size: 65%;
 }
 
-#iyghykuxii .gt_footnote_marks {
+#zuizqcuzfn .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="iyghykuxii" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="zuizqcuzfn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -3393,16 +3512,60 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
 <h2 id="plots">Plots</h2>
 <h3 id="use-the-labels_list-when-defining-plot-labels.">Use the <code>labels_list</code> when defining plot labels.</h3>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>dta</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    overall  <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>overall</span>,levels  <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very dissatisfied"</span>, 
+                                           <span class='st'>"Dissatisfied"</span>, 
+                                           <span class='st'>"Neutral"</span>, 
+                                           <span class='st'>"Satisfied"</span>,
+                                           <span class='st'>"Very satisfied"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    restaurant <span class='op'>=</span> <span class='fu'>fct_collapse</span><span class='op'>(</span><span class='va'>restaurant</span>, limassol  <span class='op'>=</span>   <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Limassol"</span>, <span class='st'>"Larnaka"</span><span class='op'>)</span>, other_level <span class='op'>=</span> <span class='st'>"other"</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='http://larmarange.github.io/labelled/reference/var_label.html'>set_variable_labels</a></span><span class='op'>(</span>.labels<span class='op'>=</span><span class='va'>labels_list</span><span class='op'>)</span> <span class='op'>%&gt;%</span>  <span class='co'>#After mutating, the label information of the `overall` variable is gone.</span>
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>overall</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>overall</span>, <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>labels_list</span><span class='op'>[[</span><span class='st'>"overall"</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <h3 id="use-the-labels_vector-in-the-facet_warp">Use the <code>labels_vector</code> in the <code>facet_warp</code></h3>
 <p>Usually, with these kind of questions(a series of likert scale questions), I want to plot many questions at the same plot. One way to do this is by tranforming all the data into a long format and get the counts (or proportions) of ech response to each question in a long table. Then we plot it by faceting the graph by the question.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>faceted_plot</span> <span class='op'>&lt;-</span> 
+  <span class='va'>dta</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>greeting</span>, <span class='va'>food</span>, <span class='va'>cost</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>pivot_longer</span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span>, 
+               names_to <span class='op'>=</span> <span class='st'>"attribute"</span>,
+               values_to<span class='op'>=</span> <span class='st'>"rating"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>attribute</span>,  <span class='va'>rating</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>
+    rating <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>rating</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Strongly agree"</span>, <span class='st'>"Agree"</span>, <span class='st'>"Neutral"</span>, <span class='st'>"Disagree"</span>, <span class='st'>"Strongly disagree"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>rating</span>, <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>geom_col</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>coord_flip</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>attribute</span><span class='op'>)</span>
+
+<span class='va'>faceted_plot</span>
+</code></pre>
+</div>
 <p><img src="a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <p>When using facet wrap in <code>ggplots</code> we get the values of the facet column in the strip text. However, since the facet column is actually a column that holds the question, it would be great to have the long label in the facet strip instead of the short name.</p>
 <p>Thankfully we don’t have to do this manually. We can utilise the <code>label_vector</code> we saved earlier, and the underated ggplot function <code>as_labeller</code> (or sometimes the <code>labeller</code> function).You can read more about <a href="https://ggplot2.tidyverse.org/reference/as_labeller.html">as_labeller</a> and <a href="https://ggplot2.tidyverse.org/reference/labeller.html">labeller</a> for many more (and more usufull) use cases.</p>
 <div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='va'>faceted_plot</span><span class='op'>+</span>
+  <span class='fu'>facet_wrap</span><span class='op'>(</span><span class='op'>~</span><span class='va'>attribute</span>,labeller <span class='op'>=</span> <span class='fu'>as_labeller</span><span class='op'>(</span><span class='va'>labels_vector</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>

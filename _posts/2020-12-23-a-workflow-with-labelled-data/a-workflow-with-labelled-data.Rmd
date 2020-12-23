@@ -1,20 +1,21 @@
 ---
 title: "A workflow with labelled data"
 description: |
-  A short description of the post.
+  I love labelled data
 author:
   - name: Lefkios  Paikousis
     url: https://example.com/norajones
 date: 12-23-2020
 output:
   distill::distill_article:
+    toc: true
     self_contained: false
 draft: false
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
@@ -30,11 +31,11 @@ library(readxl)
 
 I usually work with survey data that come in the form of a spreadsheet (usually from google forms).
 
-The variable names are long and highly descriptive of what information the variable contains, but that long of a anme, makes it very hard to work with while wrangling the dataset.   
+The variable names are long and highly descriptive of what information the variable contains, but that long of a name, makes it very hard to work with while wrangling the dataset.   
 
 What I want is to keep the original variable name as a `label` and rename the variable names with new `names` 
 
-To demontrate my workflow, I created a sample dataset to work with. You can download it `here`.
+To demontrate my workflow, I created a sample dataset to work with. You can download it [from github](https://github.com/lefkiospaikousis/distill_webpage/blob/master/_posts/2020-12-23-a-workflow-with-labelled-data/sample_survey.xlsx)
 
 The dataset is stored as an excel file, and has two worksheets.  
 
