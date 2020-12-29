@@ -9,7 +9,6 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-    - text: "Services"
     - icon: fa fa-twitter
       href: https://twitter.com/lefkiospaik
     - icon: fa fa-github
