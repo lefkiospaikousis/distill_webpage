@@ -16,6 +16,9 @@ html, body, p {
   font-style: normal;
   
 }
+
+
+
 /* Change the appearance of in-line code chunks */
 code {
   font-family: 'Fira Mono', sans-serif;
@@ -25,8 +28,6 @@ code {
   font-size: 0.9em;
 }
 
-
 d-code {
-  /*background: grey;*/
-  font-family: monospace;
+  background: white;
 }

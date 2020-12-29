@@ -1,7 +1,7 @@
 ---
 title: "A workflow with labelled data"
 description: |
-  I love labelled data
+  I love labelled data.
 author:
   - name: Lefkios  Paikousis
     url: https://example.com/norajones
@@ -54,7 +54,7 @@ Let's read in the data
 
 ```{r}
 
-path = "sample_survey.xlsx"
+path = here::here("Data", "sample_survey.xlsx")
 dta <- readxl::read_xlsx(path)
 
 glimpse(dta)
@@ -110,37 +110,39 @@ dta %>%
 ### Factors and order of the value labels
 
 The order of the satifaction levels in the previous table, is not the most appropriate. It should read from `Very dissatisfied` down to `Very satisfied`.    
-One way to accomplish this is to turn the variable into a factor. However, one problem arises now, where the `label` for the `overall` variable is gone. That is an inherent behaviour of `dplyr::mutate()` where it strips down these attributes off the variables that you manipulate.
+One way to accomplish this is to turn the variable into a factor. However, one problem arises now, where the `label` for the `overall` variable is gone. That is an inherent behaviour of `dplyr::mutate()` where it removes these attributes off of the variables that you manipulate.
 
 See the `overall` title in the table below    
 
 ```{r}
-dta %>%
+
+# change `overall` to factor
+dta <- 
+  dta %>%
   mutate(
-    overall  =  factor(overall,levels  = c("Very dissatisfied", "Dissatisfied", "Neutral", "Satisfied",
-                                           "Very satisfied"))
-  ) %>% 
+    overall  =  factor(overall,levels  = c("Very dissatisfied", "Dissatisfied", "Neutral",
+                                           "Satisfied","Very satisfied"))
+  ) 
+
+dta %>% 
   select(overall,restaurant) %>% 
   tbl_summary(
     by  = restaurant
   ) 
 ```
-    
-     
-     
+
+
+
 You can easily solve this, using the `labelled::set_variable_names()` function.  This function can be used in the `dplyr` chain since it takes a `data` argument.    
 What you need to use is the `labels_list` we have saved before and pass it in the `.labels` argument of the `set_variable_names()`
 
 ```{r}
-dta %>%
-  mutate(
-    overall  =  factor(overall,levels  = c("Very dissatisfied", 
-                                           "Dissatisfied", 
-                                           "Neutral", 
-                                           "Satisfied",
-                                           "Very satisfied"))
-  ) %>% 
-  set_variable_labels(.labels=labels_list) %>%  #After mutating, the label information of the `overall` variable is gone.
+
+dta <- 
+  dta %>%
+  set_variable_labels(.labels=labels_list)  #After mutating, the label information of the `overall` variable is gone.
+
+dta %>% 
   select(overall,restaurant) %>% 
   tbl_summary(
     by  = restaurant
@@ -148,7 +150,7 @@ dta %>%
 
 ```      
 
-     
+
 Important to say that:    
 
 - Using the `labels_list` object we do not worry about the order of the variables as the matchingis done on the names of the variables.    
@@ -158,34 +160,35 @@ Important to say that:
 
 ## Plots
 
-### Use the `labels_list` when defining plot labels.
+### Axis titles
 
+Here, we want to utilise the labels we stored on the `labels_list` when defining axes title labels.
 
-
+Here is the plot with the default varible names as the xes title labels
 
 ```{r}
-dta %>%
-  mutate(
-    overall  =  factor(overall,levels  = c("Very dissatisfied", 
-                                           "Dissatisfied", 
-                                           "Neutral", 
-                                           "Satisfied",
-                                           "Very satisfied"))
-  ) %>% 
-  mutate(
-    restaurant = fct_collapse(restaurant, limassol  =   c("Limassol", "Larnaka"), other_level = "other")
-  ) %>% 
-  set_variable_labels(.labels=labels_list) %>%  #After mutating, the label information of the `overall` variable is gone.
+plot_overall <- 
+  dta %>%
   count(overall) %>% 
   ggplot(aes(overall, n))+
   geom_col()+
-  coord_flip()+
+  coord_flip()
+
+plot_overall
+```
+
+Now, you don;t need to type in manually the axis title label. Just use the `labels_list`
+```{r}
+
+plot_overall  +
   labs(x=labels_list[["overall"]])
 
 ```
 
 
-### Use the `labels_vector` in the `facet_warp`
+### Facet strip labels
+
+Here, we will utilise the `labels_vector` to show descriptive labels in the `facet_warp` strip texts
 
 
 Usually, with these kind of questions(a series of likert scale questions), I want to plot many questions at the same plot. One way to do this is by tranforming all the data into a long format and  get the counts (or proportions) of ech response to each question in a long table. Then we plot it by faceting the graph by the question.
@@ -209,7 +212,6 @@ faceted_plot <-
 
 faceted_plot
 ```
-\newline
 
 
 When using facet wrap in `ggplots` we get the values of the facet column in the strip text. However, since the
@@ -223,5 +225,58 @@ Thankfully we don't have to do this manually. We can utilise the `label_vector` 
 
 faceted_plot+
   facet_wrap(~attribute,labeller = as_labeller(labels_vector))
-  
+
+```
+
+
+###  Axis text labels
+
+
+Here we will change how the levels in the axis ticks are displayed.
+
+Im my workflow, very often I need to plot proportions (or other summary statistic) of many items in the survey. Let's assume we need to plot the proportion of respondents who answered positively ie.. `Strongly agree` or `Agree` in the rating questions `greeting`, `food` and `cost`.
+
+One way of doing this: 
+
+-1. Gather all rating questions (lets call them `attributes`) into a long format table with 2 columns - `attribute` and the `rating` for that attribute.
+-2. Indicate if the rating is positive ie. `Agree/ Strongly agree` 
+-3. Count tne occurrences of positive rating
+ 
+
+```{r}
+
+# Table of good rating percentages
+
+tbl_pct <- 
+  dta %>% 
+  select(greeting, food, cost) %>% 
+  # step 1
+  pivot_longer(everything(), 
+               names_to = "attribute",
+               values_to= "rating") %>% 
+  # 2. If Agree/strongly agree then `1` or `0`
+  mutate(rating  =  if_else(rating %in% c("Agree","Strongly agree"),1,  0)) %>% 
+  # 3.Count the occurrences andget proportion
+  count(attribute, rating) %>% 
+  group_by(attribute) %>% 
+  mutate(pct = n/ sum(n)) 
+
+#the plot
+plot_pct <- 
+  tbl_pct %>% 
+  # keep only the `1`s i.e. the proportion of agree/sstrongly agree
+  filter(rating ==1) %>% 
+  ggplot(aes(attribute, pct))+
+  geom_col()
+
+plot_pct
+```
+
+Now, we need to change the `cost`, `food` and `greeting` with appropriate text
+
+I usually use the `scale_*_discrete` function. There you can define the `labels` as a named list or a named vector
+
+```{r}
+plot_pct+
+  scale_x_discrete(labels = labels_list) # or labels_vector. Both will work
 ```
