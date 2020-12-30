@@ -1,15 +1,15 @@
 ---
 title: "A workflow with labelled data"
-categories: 
-  - 'labelled-data'
-  - workflow
-  - labels
-  - ggplot2
 description: |
   I love labelled data.
 author:
   - name: Lefkios  Paikousis
     url: https://example.com/norajones
+categories: 
+  - 'labelled-data'
+  - workflow
+  - labels
+  - ggplot2
 date: 12-23-2020
 output:
   distill::distill_article:

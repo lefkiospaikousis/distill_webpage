@@ -1,0 +1,212 @@
+---
+title: "Standardised Mortality Ratio"
+description: |
+  Calculation  of the SMR and and confidence interval
+author:
+  - name: Lefkios  Paikousis
+    url: https://example.com/norajones
+categories:
+  - purrr
+  - regex
+  - excel
+  - rowwise
+date: 05-10-2019
+output:
+  distill::distill_article:
+    toc: true
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+This is a reminder to myself (and to whoever finds this usefull) on the calculation of:   
+
+- the [Standardised Mortality Ratio](https://en.wikipedia.org/wiki/Standardized_mortality_ratio)  (SMR)  
+- The Confidence Interval of the SMR
+
+
+## What you can learn    
+
+What you can learn in this reminder  
+
+- Some use of regular expressions
+- creating functions and use them to avoid repeat myself
+- Read (multiple) excel data into R 
+- Function programming basics using the package [purrr](https://purrr.tidyverse.org/), [intro](https://towardsdatascience.com/functional-programming-in-r-with-purrr-469e597d0229), [usefull](https://www.hvitfeldt.me/blog/purrr-tips-and-tricks/)
+- The `rowwise` function
+- `list.files` function and the `set_names` from `purrr` to make it easy to map the files into functions and keep a record of what comes from 
+
+
+## The SMR
+
+The SMR is calculated as the ratio of observed hospital mortality over predicted hospital mortality.    
+
+I have data on ~1000 patients of the iCU and the following info:
+
+- SAPS II score
+- ICU mortality (death/alive)
+
+The data are in sepate excel workbooks named _2012.xlsx_, _2013.xlsx_ etc.. until 2017, in the folder _"ECDC data"_ in my working directory (my project)
+
+
+## Read files
+```{r READ FILES}
+
+library(tidyverse)
+library(readxl)
+
+# create a vector of the file names
+list_of_files = 
+  list.files(path = "ECDC data", pattern = ".xlsx$", full.names = TRUE) %>% 
+  # name the vectors. It will be usefull to map the names to the read_xlsx function to get all data at once (purrr magic..)
+  set_names()
+
+
+# Map the file names to the readxl:: read_xlsx function to read all excel files and once. 
+# Combine all the workbooks into a dataframe. 
+# Also, capture the filename as an `id` variable in the dataframe
+
+all_data = 
+map_df( list_of_files,
+        ~ readxl::read_excel(path = .,
+                             # get some columns only (i have a lot)
+                             range = readxl::cell_cols("A:M")),
+        .id = "dataset") %>% 
+  #get the year from the dataset name - use some regular expressions
+  mutate(year = str_extract(dataset, pattern ="[0-9]+" )) %>% 
+  # Do some cleaning 
+  janitor::clean_names() %>% # the column names
+  # remove no saps score and no info on death
+  filter(!is.na(saps_ii),
+         !is.na(outcome_at_icu_discharge)) %>% 
+  mutate(death = if_else(outcome_at_icu_discharge == "Alive", 0, 1)) %>% 
+  # Select relevant variables only
+  select(year,death, saps_ii, type_of_admision) 
+
+```
+
+
+Here is a bit of an output
+
+```{r}
+
+all_data %>% 
+  head(10) %>% 
+  knitr::kable()
+```
+
+## Aggregate    
+
+Lets aggregate by year, the observed mortality, and the median SAPS II score  
+
+```{r aggregation}
+
+  all_data_aggr = 
+  all_data %>% 
+    group_by(year) %>% 
+    summarise(n = n(),
+              obs_mortality = sum(death),
+              mortality_rate = mean(death),
+              # I get the median SAPS score
+              med_saps = median(saps_ii)
+              ) 
+
+  all_data_aggr %>% knitr::kable()
+
+```
+
+
+Now I need to calculate the predicted mortality by year.    
+The predicted mortality is [derived from the SAPS II score](https://clincalc.com/IcuMortality/SAPSII.aspx) as follows:  
+
+$logit = -7.7631 + 0.0737*Score + 0.9971*ln(Score+1)$
+
+and then   
+
+$Mortality = \frac{e^{logit}}{1+e^{logit}}$
+
+
+Here I need a function that has the saps II score as an input and returns the predicted mortality   
+
+
+```{r predict-mortality-function}
+predict_mortality = function(score){
+  logit = -7.7631 + 0.0737 * score + 0.9971 * log(score+1)
+  mortality = exp(logit)/ (1+exp(logit))
+  return(mortality)
+}
+```
+
+Now lets use our function `predict_mortality` to calculate the predicted mortality out of the SAPS II score    
+
+```{r}
+
+  smr_table = 
+  all_data_aggr %>% 
+    mutate(pred_mortality_rate = predict_mortality(med_saps),
+           # get expecte counts of deaths
+           pred_mortality = pred_mortality_rate * n,
+           # The SMR 
+           smr = obs_mortality/ pred_mortality) 
+
+  #Have  a look
+  smr_table %>% knitr::kable(digits = 2)
+```
+
+
+## The Confidence Interval
+
+An approximate 95% confidence interval (CI) for the SMR was calculated by using the method proposed by __Vandenbroucke JP. A shortcut method for calculating the 95 percent confidence interval of the standardized mortality ratio. (Letter). Am J Epidemiol 1982; 115:303-4.__  
+
+I found the formulas of all possible CI calculations for the SMR [here](https://www.openepi.com/PDFDocs/SMRDoc.pdf). It is the documentation of the [this](http://web1.sph.emory.edu/users/cdckms/exact-midP-SMR.html) and [this](https://www.openepi.com/SMR/SMR.htm) online calculators
+
+
+I tried out a few formulas in the documentation, specifically the ones that are called _approximations_
+
+I haven't tried the Exact Tests calculations - I think they need more programming + I couldn't figure out how I am supposed to do the iterative process. Perhaps its easy and don't have time to think about it :)
+
+
+Well i tried this approximation by Vanderbroucke    
+
+![](smr_confidence_interval.png)
+
+Beware that the $\sqrt(α)$ refers to the observed mortality and the $λ$ to the predicted mortality. DO NOT confuse with the $α$ of the Z score (i.e. the 1.96)
+
+
+So I created this function, that reads the observed and predicted mortality (actual counts) and returns a vector of 2 values. The 1st is the lower limit, and  the 2nd the upper limit   
+
+
+```{r}
+smr_conf =  function(observed, predicted){
+  
+  lower = ((sqrt(observed) - 1.96*0.5)^2)/ predicted
+  upper = ((sqrt(observed) + 1.96*0.5)^2)/ predicted
+  
+  return(c(lower, upper))
+  
+}
+```
+
+Now lets use the `smr_table` we calculated earlier   
+
+__NOTE HERE the use of__ `rowwise` function of `dplyr`    
+
+The `rowwise` is needed since the inputs to the the function are taken rowwise    
+
+```{r}
+
+smr_table %>% 
+  rowwise() %>% 
+  mutate( lower_95 = smr_conf(obs_mortality, pred_mortality)[1],
+          upper_95 = smr_conf(obs_mortality, pred_mortality)[2]) %>% 
+  knitr::kable(digits = 2)
+
+```
+
+
+
+
