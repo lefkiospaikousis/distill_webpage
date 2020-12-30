@@ -1,7 +1,9 @@
 name: "distill_webpage"
 title: "Lefkios Paikousis"
 description: |
-  Lefkios Paikousis Blog. This is where the description in the yaml file goes.
+   A blog about R and data analysis by Lefkios Paikousis
+base_url: https://lefkiospaikousis.netlify.app
+repository_url: https://github.com/lefkiospaikousis/distill_webpage
 output_dir: "docs"
 navbar:
   right:

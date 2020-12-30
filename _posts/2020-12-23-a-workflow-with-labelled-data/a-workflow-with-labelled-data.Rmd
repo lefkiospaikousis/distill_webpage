@@ -1,5 +1,10 @@
 ---
 title: "A workflow with labelled data"
+categories: 
+  - 'labelled-data'
+  - workflow
+  - labels
+  - ggplot2
 description: |
   I love labelled data.
 author:

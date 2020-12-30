@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Lefkios Paikousis</title>
+    <link>https://lefkiospaikousis.netlify.app</link>
+    <atom:link href="https://lefkiospaikousis.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>A blog about R and data analysis by Lefkios Paikousis
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>A workflow with labelled data</title>
+      <dc:creator>Lefkios  Paikousis</dc:creator>
+      <link>https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data</link>
+      <description>I love labelled data.</description>
+      <guid>https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data</guid>
+      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data/a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>
