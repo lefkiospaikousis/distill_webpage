@@ -61,7 +61,7 @@ library(readxl)
 
 # create a vector of the file names
 list_of_files = 
-  list.files(path = "ECDC data", pattern = ".xlsx$", full.names = TRUE) %>% 
+  list.files(path = "ECDC-data", pattern = ".xlsx$", full.names = TRUE) %>% 
   # name the vectors. It will be usefull to map the names to the read_xlsx function to get all data at once (purrr magic..)
   set_names()
 
