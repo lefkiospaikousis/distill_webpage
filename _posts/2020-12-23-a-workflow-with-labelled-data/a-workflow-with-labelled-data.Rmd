@@ -40,7 +40,7 @@ The variable names are long and highly descriptive of what information the varia
 
 What I want is to keep the original variable name as a `label` and rename the variable names with new `names` 
 
-To demontrate my workflow, I created a sample dataset to work with. You can download it [from github](https://github.com/lefkiospaikousis/distill_webpage/blob/master/_posts/2020-12-23-a-workflow-with-labelled-data/sample_survey.xlsx)
+To demontrate my workflow, I created a sample dataset to work with. You can download it [from github](https://github.com/lefkiospaikousis/distill_webpage/raw/master/_posts/2020-12-23-a-workflow-with-labelled-data/sample_survey.xlsx)
 
 The dataset is stored as an excel file, and has two worksheets.  
 

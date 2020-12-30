@@ -7,7 +7,7 @@
     <description>A blog about R and data analysis by Lefkios Paikousis
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>A workflow with labelled data</title>
       <dc:creator>Lefkios  Paikousis</dc:creator>
@@ -18,7 +18,7 @@
       <category>labels</category>
       <category>ggplot2</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data</guid>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
       <media:content url="https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data/a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
@@ -31,7 +31,7 @@
       <category>excel</category>
       <category>rowwise</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2019-05-10-standardised-mortality-ratio</guid>
-      <pubDate>Thu, 09 May 2019 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
