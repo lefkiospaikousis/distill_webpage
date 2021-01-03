@@ -15,6 +15,13 @@ navbar:
       href: https://twitter.com/lefkiospaik
     - icon: fa fa-github
       href: https://github.com/lefkiospaikousis
+collections:
+  posts:
+    share: [twitter, linkedin, facebook]
+google_analytics: "G-M7HNGB59D2"
+twitter:
+  site: "@lefkiospaik"
+  creator: "@lefkiospaik"
 output: 
   distill::distill_article:
     css: styles.css

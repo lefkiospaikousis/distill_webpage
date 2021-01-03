@@ -1,0 +1,42 @@
+---
+title: "Working ith Likert-scale data"
+description: |
+  A short description of the post.
+author:
+  - name: Lefkios  Paikousis
+    url: https://www.linkedin.com/in/lefkios/
+date: 01-03-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+### Libraries
+
+```{r message=FALSE, warning=FALSE}
+
+library(tidyverse)
+
+```
+
+
+The data come from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) and the direct link for the data and description is [here](https://archive.ics.uci.edu/ml/datasets/wiki4he)
+
+```{r}
+path <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00334/wiki4HE.csv"
+
+dta <- read_delim(path, delim = ";")
+
+
+glimpse(dta)
+```
+
+
+

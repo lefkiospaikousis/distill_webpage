@@ -4,7 +4,7 @@ description: |
   I love labelled data.
 author:
   - name: Lefkios  Paikousis
-    url: https://example.com/norajones
+    url: https://www.linkedin.com/in/lefkios/
 categories: 
   - 'labelled-data'
   - workflow

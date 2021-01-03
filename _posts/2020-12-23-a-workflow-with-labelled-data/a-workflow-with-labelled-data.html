@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["A workflow with labelled data"]},{"type":"character","attributes":{},"value":["I love labelled data.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["labelled-data","workflow","labels","ggplot2"]},{"type":"character","attributes":{},"value":["12-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output","draft"]}},"value":[{"type":"character","attributes":{},"value":["A workflow with labelled data"]},{"type":"character","attributes":{},"value":["I love labelled data.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["labelled-data","workflow","labels","ggplot2"]},{"type":"character","attributes":{},"value":["12-23-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"logical","attributes":{},"value":[false]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1420,7 +1420,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"A workflow with labelled data","description":"I love labelled data.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://example.com/norajones","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-23T00:00:00.000+03:00","citationText":"Paikousis, 2020"}
+{"title":"A workflow with labelled data","description":"I love labelled data.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://www.linkedin.com/in/lefkios/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-12-23T00:00:00.000+03:00","citationText":"Paikousis, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1443,7 +1443,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-byline">
-  Lefkios Paikousis <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> 
+  Lefkios Paikousis <a href="https://www.linkedin.com/in/lefkios/" class="uri">https://www.linkedin.com/in/lefkios/</a> 
   
 <br/>12-23-2020
 </div>
@@ -1494,7 +1494,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>path</span> <span class='op'>=</span> <span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='st'>"Data"</span>, <span class='st'>"sample_survey.xlsx"</span><span class='op'>)</span>
-<span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readxl/man/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span>
+<span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span>
 
 <span class='fu'>glimpse</span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span>
 </code></pre>
@@ -1512,7 +1512,7 @@ $ `How satisfied you are overall`      &lt;chr&gt; &quot;Very satisfied&quot;, &
 <p>Read in the <code>labels</code> worksheet for the column dictionary</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>dta_labels</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readxl/man/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span>, sheet <span class='op'>=</span> <span class='st'>"labels"</span><span class='op'>)</span>
+<pre><code><span class='va'>dta_labels</span> <span class='op'>&lt;-</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_xlsx</a></span><span class='op'>(</span><span class='va'>path</span>, sheet <span class='op'>=</span> <span class='st'>"labels"</span><span class='op'>)</span>
 
 <span class='va'>dta_labels</span>
 </code></pre>
@@ -1594,7 +1594,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qyudgevvic .gt_table {
+#uuwugylvsa .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1619,7 +1619,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-left-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_heading {
+#uuwugylvsa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1631,7 +1631,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_title {
+#uuwugylvsa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1641,7 +1641,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-bottom-width: 0;
 }
 
-#qyudgevvic .gt_subtitle {
+#uuwugylvsa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1651,13 +1651,13 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-width: 0;
 }
 
-#qyudgevvic .gt_bottom_border {
+#uuwugylvsa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_col_headings {
+#uuwugylvsa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1672,7 +1672,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_col_heading {
+#uuwugylvsa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1692,7 +1692,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   overflow-x: hidden;
 }
 
-#qyudgevvic .gt_column_spanner_outer {
+#uuwugylvsa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1704,15 +1704,15 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 4px;
 }
 
-#qyudgevvic .gt_column_spanner_outer:first-child {
+#uuwugylvsa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qyudgevvic .gt_column_spanner_outer:last-child {
+#uuwugylvsa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qyudgevvic .gt_column_spanner {
+#uuwugylvsa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1724,7 +1724,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   width: 100%;
 }
 
-#qyudgevvic .gt_group_heading {
+#uuwugylvsa .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1746,7 +1746,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   vertical-align: middle;
 }
 
-#qyudgevvic .gt_empty_group_heading {
+#uuwugylvsa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1761,15 +1761,15 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   vertical-align: middle;
 }
 
-#qyudgevvic .gt_from_md > :first-child {
+#uuwugylvsa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qyudgevvic .gt_from_md > :last-child {
+#uuwugylvsa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qyudgevvic .gt_row {
+#uuwugylvsa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1788,7 +1788,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   overflow-x: hidden;
 }
 
-#qyudgevvic .gt_stub {
+#uuwugylvsa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1800,7 +1800,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-left: 12px;
 }
 
-#qyudgevvic .gt_summary_row {
+#uuwugylvsa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1810,7 +1810,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 5px;
 }
 
-#qyudgevvic .gt_first_summary_row {
+#uuwugylvsa .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1820,7 +1820,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_grand_summary_row {
+#uuwugylvsa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1830,7 +1830,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   padding-right: 5px;
 }
 
-#qyudgevvic .gt_first_grand_summary_row {
+#uuwugylvsa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1840,11 +1840,11 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-top-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_striped {
+#uuwugylvsa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qyudgevvic .gt_table_body {
+#uuwugylvsa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1853,7 +1853,7 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-bottom-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_footnotes {
+#uuwugylvsa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1867,13 +1867,13 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_footnote {
+#uuwugylvsa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#qyudgevvic .gt_sourcenotes {
+#uuwugylvsa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1887,46 +1887,46 @@ $ overall    &lt;chr&gt; &quot;Very satisfied&quot;, &quot;Very dissatisfied&quo
   border-right-color: #D3D3D3;
 }
 
-#qyudgevvic .gt_sourcenote {
+#uuwugylvsa .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#qyudgevvic .gt_left {
+#uuwugylvsa .gt_left {
   text-align: left;
 }
 
-#qyudgevvic .gt_center {
+#uuwugylvsa .gt_center {
   text-align: center;
 }
 
-#qyudgevvic .gt_right {
+#uuwugylvsa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qyudgevvic .gt_font_normal {
+#uuwugylvsa .gt_font_normal {
   font-weight: normal;
 }
 
-#qyudgevvic .gt_font_bold {
+#uuwugylvsa .gt_font_bold {
   font-weight: bold;
 }
 
-#qyudgevvic .gt_font_italic {
+#uuwugylvsa .gt_font_italic {
   font-style: italic;
 }
 
-#qyudgevvic .gt_super {
+#uuwugylvsa .gt_super {
   font-size: 65%;
 }
 
-#qyudgevvic .gt_footnote_marks {
+#uuwugylvsa .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="qyudgevvic" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="uuwugylvsa" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -2030,7 +2030,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jarnqjcsnn .gt_table {
+#qoyjwxicyv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2055,7 +2055,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-left-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_heading {
+#qoyjwxicyv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2067,7 +2067,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_title {
+#qoyjwxicyv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2077,7 +2077,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-bottom-width: 0;
 }
 
-#jarnqjcsnn .gt_subtitle {
+#qoyjwxicyv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2087,13 +2087,13 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-width: 0;
 }
 
-#jarnqjcsnn .gt_bottom_border {
+#qoyjwxicyv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_col_headings {
+#qoyjwxicyv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2108,7 +2108,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_col_heading {
+#qoyjwxicyv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2128,7 +2128,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   overflow-x: hidden;
 }
 
-#jarnqjcsnn .gt_column_spanner_outer {
+#qoyjwxicyv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2140,15 +2140,15 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 4px;
 }
 
-#jarnqjcsnn .gt_column_spanner_outer:first-child {
+#qoyjwxicyv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jarnqjcsnn .gt_column_spanner_outer:last-child {
+#qoyjwxicyv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jarnqjcsnn .gt_column_spanner {
+#qoyjwxicyv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2160,7 +2160,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   width: 100%;
 }
 
-#jarnqjcsnn .gt_group_heading {
+#qoyjwxicyv .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2182,7 +2182,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   vertical-align: middle;
 }
 
-#jarnqjcsnn .gt_empty_group_heading {
+#qoyjwxicyv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2197,15 +2197,15 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   vertical-align: middle;
 }
 
-#jarnqjcsnn .gt_from_md > :first-child {
+#qoyjwxicyv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jarnqjcsnn .gt_from_md > :last-child {
+#qoyjwxicyv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jarnqjcsnn .gt_row {
+#qoyjwxicyv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2224,7 +2224,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   overflow-x: hidden;
 }
 
-#jarnqjcsnn .gt_stub {
+#qoyjwxicyv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2236,7 +2236,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-left: 12px;
 }
 
-#jarnqjcsnn .gt_summary_row {
+#qoyjwxicyv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2246,7 +2246,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 5px;
 }
 
-#jarnqjcsnn .gt_first_summary_row {
+#qoyjwxicyv .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2256,7 +2256,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_grand_summary_row {
+#qoyjwxicyv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2266,7 +2266,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   padding-right: 5px;
 }
 
-#jarnqjcsnn .gt_first_grand_summary_row {
+#qoyjwxicyv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2276,11 +2276,11 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-top-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_striped {
+#qoyjwxicyv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jarnqjcsnn .gt_table_body {
+#qoyjwxicyv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2289,7 +2289,7 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-bottom-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_footnotes {
+#qoyjwxicyv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2303,13 +2303,13 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_footnote {
+#qoyjwxicyv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#jarnqjcsnn .gt_sourcenotes {
+#qoyjwxicyv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2323,46 +2323,46 @@ One way to accomplish this is to turn the variable into a factor. However, one p
   border-right-color: #D3D3D3;
 }
 
-#jarnqjcsnn .gt_sourcenote {
+#qoyjwxicyv .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#jarnqjcsnn .gt_left {
+#qoyjwxicyv .gt_left {
   text-align: left;
 }
 
-#jarnqjcsnn .gt_center {
+#qoyjwxicyv .gt_center {
   text-align: center;
 }
 
-#jarnqjcsnn .gt_right {
+#qoyjwxicyv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jarnqjcsnn .gt_font_normal {
+#qoyjwxicyv .gt_font_normal {
   font-weight: normal;
 }
 
-#jarnqjcsnn .gt_font_bold {
+#qoyjwxicyv .gt_font_bold {
   font-weight: bold;
 }
 
-#jarnqjcsnn .gt_font_italic {
+#qoyjwxicyv .gt_font_italic {
   font-style: italic;
 }
 
-#jarnqjcsnn .gt_super {
+#qoyjwxicyv .gt_super {
   font-size: 65%;
 }
 
-#jarnqjcsnn .gt_footnote_marks {
+#qoyjwxicyv .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="jarnqjcsnn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="qoyjwxicyv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -2460,7 +2460,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#qlyjtwehfe .gt_table {
+#bmmfwsvezf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2485,7 +2485,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-left-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_heading {
+#bmmfwsvezf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2497,7 +2497,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_title {
+#bmmfwsvezf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2507,7 +2507,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-bottom-width: 0;
 }
 
-#qlyjtwehfe .gt_subtitle {
+#bmmfwsvezf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2517,13 +2517,13 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-width: 0;
 }
 
-#qlyjtwehfe .gt_bottom_border {
+#bmmfwsvezf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_col_headings {
+#bmmfwsvezf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2538,7 +2538,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_col_heading {
+#bmmfwsvezf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2558,7 +2558,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   overflow-x: hidden;
 }
 
-#qlyjtwehfe .gt_column_spanner_outer {
+#bmmfwsvezf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2570,15 +2570,15 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 4px;
 }
 
-#qlyjtwehfe .gt_column_spanner_outer:first-child {
+#bmmfwsvezf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qlyjtwehfe .gt_column_spanner_outer:last-child {
+#bmmfwsvezf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qlyjtwehfe .gt_column_spanner {
+#bmmfwsvezf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2590,7 +2590,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   width: 100%;
 }
 
-#qlyjtwehfe .gt_group_heading {
+#bmmfwsvezf .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2612,7 +2612,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   vertical-align: middle;
 }
 
-#qlyjtwehfe .gt_empty_group_heading {
+#bmmfwsvezf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2627,15 +2627,15 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   vertical-align: middle;
 }
 
-#qlyjtwehfe .gt_from_md > :first-child {
+#bmmfwsvezf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qlyjtwehfe .gt_from_md > :last-child {
+#bmmfwsvezf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qlyjtwehfe .gt_row {
+#bmmfwsvezf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2654,7 +2654,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   overflow-x: hidden;
 }
 
-#qlyjtwehfe .gt_stub {
+#bmmfwsvezf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2666,7 +2666,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-left: 12px;
 }
 
-#qlyjtwehfe .gt_summary_row {
+#bmmfwsvezf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2676,7 +2676,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 5px;
 }
 
-#qlyjtwehfe .gt_first_summary_row {
+#bmmfwsvezf .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2686,7 +2686,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_grand_summary_row {
+#bmmfwsvezf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2696,7 +2696,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   padding-right: 5px;
 }
 
-#qlyjtwehfe .gt_first_grand_summary_row {
+#bmmfwsvezf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2706,11 +2706,11 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-top-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_striped {
+#bmmfwsvezf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qlyjtwehfe .gt_table_body {
+#bmmfwsvezf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2719,7 +2719,7 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-bottom-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_footnotes {
+#bmmfwsvezf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2733,13 +2733,13 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_footnote {
+#bmmfwsvezf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#qlyjtwehfe .gt_sourcenotes {
+#bmmfwsvezf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2753,46 +2753,46 @@ What you need to use is the <code>labels_list</code> we have saved before and pa
   border-right-color: #D3D3D3;
 }
 
-#qlyjtwehfe .gt_sourcenote {
+#bmmfwsvezf .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#qlyjtwehfe .gt_left {
+#bmmfwsvezf .gt_left {
   text-align: left;
 }
 
-#qlyjtwehfe .gt_center {
+#bmmfwsvezf .gt_center {
   text-align: center;
 }
 
-#qlyjtwehfe .gt_right {
+#bmmfwsvezf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qlyjtwehfe .gt_font_normal {
+#bmmfwsvezf .gt_font_normal {
   font-weight: normal;
 }
 
-#qlyjtwehfe .gt_font_bold {
+#bmmfwsvezf .gt_font_bold {
   font-weight: bold;
 }
 
-#qlyjtwehfe .gt_font_italic {
+#bmmfwsvezf .gt_font_italic {
   font-style: italic;
 }
 
-#qlyjtwehfe .gt_super {
+#bmmfwsvezf .gt_super {
   font-size: 65%;
 }
 
-#qlyjtwehfe .gt_footnote_marks {
+#bmmfwsvezf .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="qlyjtwehfe" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="bmmfwsvezf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>

@@ -4,7 +4,7 @@ description: |
   Calculation  of the SMR and and confidence interval
 author:
   - name: Lefkios  Paikousis
-    url: https://example.com/norajones
+    url: https://www.linkedin.com/in/lefkios/
 categories:
   - purrr
   - regex
