@@ -1,0 +1,51 @@
+---
+title: "Distill resources"
+description: |
+  Resources to improve the distill website
+base_url: https://lefkiospaikousis.netlify.app
+preview: austin-distel-4r72LPFh4Ik-unsplash_small.jpg
+author:
+  - name: Lefkios  Paikousis
+    url: https://www.linkedin.com/in/lefkios/
+date: 01-04-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Some resouces to use to improve my distill website
+
+
+- [Distill by Rstudio](https://rstudio.github.io/distill/blog.html)
+The official documentation and guide on how to create the blog
+
+- [Distill css defaults](https://github.com/rstudio/distill/blob/6be30c96dc469fcc0e3799d23ddfaac72c2a6466/inst/rmarkdown/templates/distill_article/resources/distill.html)
+
+- [This blog](https://www.shamindras.com/posts/2019-07-31-shrotriya2019distillpt2/)
+
+Check out the code for this blog, also the `_site.yml` file(https://github.com/shamindras/ss_personal_distill_blog/blob/master/_site.yml). 
+
+Thanks __Shamindra Shrotriya__
+
+- [Thomas Mock blog](https://github.com/jthomasmock/radix_themockup)    
+
+Lot's can be learned from this blog and its code.   
+His blog is [here](https://themockup.blog)
+
+- [Article Metadata](https://rstudio.github.io/distill/metadata.html)
+
+Figures, twitter, google scloar..
+
+
+- [Other Metadata](https://rstudio.github.io/distill)
+
+Citatios, footnote, tabke of contents, appendices, etc..
+
+## Images {.appendix}
+
+<span style = "font-size: 100%">Preview Photo by <a href="https://unsplash.com/@austindistel?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Austin Distel</a> on <a href="https://unsplash.com/images/stock/blogging?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>

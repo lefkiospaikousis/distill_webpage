@@ -7,7 +7,16 @@
     <description>A blog about R and data analysis by Lefkios Paikousis
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Distill resources</title>
+      <dc:creator>Lefkios  Paikousis</dc:creator>
+      <link>https://lefkiospaikousis.netlify.app/posts/2021-01-04-distill-resources</link>
+      <description>Resources to improve the distill website</description>
+      <guid>https://lefkiospaikousis.netlify.app/posts/2021-01-04-distill-resources</guid>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lefkiospaikousis.netlify.app/posts/2021-01-04-distill-resources/austin-distel-4r72LPFh4Ik-unsplash_small.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>A workflow with labelled data</title>
       <dc:creator>Lefkios  Paikousis</dc:creator>
@@ -18,7 +27,7 @@
       <category>labels</category>
       <category>ggplot2</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data</guid>
-      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
       <media:content url="https://lefkiospaikousis.netlify.app/posts/2020-12-23-a-workflow-with-labelled-data/a-workflow-with-labelled-data_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>

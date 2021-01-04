@@ -1,0 +1,89 @@
+---
+title: "Working with Likert-scale data"
+description: |
+  A short description of the post.
+author:
+  - name: Lefkios  Paikousis
+    url: https://www.linkedin.com/in/lefkios/
+date: 01-03-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+### Libraries
+
+```{r message=FALSE, warning=FALSE}
+
+library(tidyverse)
+
+```
+
+
+The data come from the __UCI Machine Learning Repository__ and the direct link for the data and description can be found [here](https://archive.ics.uci.edu/ml/datasets/wiki4he).
+
+The data reference ^[Meseguer‐Artola, A., Aibar, E., Lladós, J., Minguillón, J. and Lerga, M., 2015. Factors that influence the teaching use of Wikipedia in higher education. Journal of the Association for Information Science and Technology, 67(5), pp.1224-1232.ISSN: 2330-1635. doi: 10.1002/asi.23488](Meseguer‐Artola et al., 2015)
+
+```{r}
+path <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00334/wiki4HE.csv"
+
+spps_path <-"https://www.sheffield.ac.uk/polopoly_fs/1.886067!/file/Video_SPSS.sav"
+
+dta <- read_delim(path, delim = ";")
+
+
+glimpse(dta)
+```
+
+```{r}
+
+labels_vector <- c(
+
+# Perceived Usefulness
+
+"PU1"  = "The use of Wikipedia makes it easier for students to develop new skills",
+"PU2" = "The use of Wikipedia improves students' learning",
+"PU3"  = "Wikipedia is useful for teaching",
+
+#Perceived Ease of Use
+"PEU1" = "Wikipedia is user-friendly",
+"PEU2" = "It is easy to find in Wikipedia the information you seek",
+"PEU3"  = "It is easy to add or edit information in Wikipedia",
+
+# Quality
+"Qu1" = "Articles in Wikipedia are reliable",
+"Qu2" = "Articles in Wikipedia are updated",
+"Qu3" = "Articles in Wikipedia are comprehensive",
+"Qu4" = "In my area of expertise, Wikipedia has a lower quality than other educational resources",
+"Qu5" = "I trust in the editing system of Wikipedia"
+)
+
+labels_list <- labels_vector %>% as.list()
+
+```
+
+```{r}
+
+dta %>% 
+  glimpse()
+
+labelled::var_label(dta) <- labels_list
+
+
+dta %>% 
+  mutate(
+    across(all_of(names(labels_list)),as.numeric)
+  ) %>% 
+  glimpse()
+
+
+```
+
+
