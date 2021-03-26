@@ -22,6 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```{r message=FALSE, warning=FALSE}
 
+library(labelled)
 library(tidyverse)
 
 ```
@@ -31,31 +32,34 @@ The data come from the __UCI Machine Learning Repository__ and the direct link f
 
 The data reference ^[Meseguer‐Artola, A., Aibar, E., Lladós, J., Minguillón, J. and Lerga, M., 2015. Factors that influence the teaching use of Wikipedia in higher education. Journal of the Association for Information Science and Technology, 67(5), pp.1224-1232.ISSN: 2330-1635. doi: 10.1002/asi.23488](Meseguer‐Artola et al., 2015)
 
+
+
+
 ```{r}
 path <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00334/wiki4HE.csv"
 
 spps_path <-"https://www.sheffield.ac.uk/polopoly_fs/1.886067!/file/Video_SPSS.sav"
 
-dta <- read_delim(path, delim = ";")
-
+# Missing values in the data are represented as `?`s
+dta <- read_delim(path, delim = ";", na = c("", NA, "?"))
 
 glimpse(dta)
 ```
+
 
 ```{r}
 
 labels_vector <- c(
 
 # Perceived Usefulness
-
 "PU1"  = "The use of Wikipedia makes it easier for students to develop new skills",
-"PU2" = "The use of Wikipedia improves students' learning",
+"PU2"  = "The use of Wikipedia improves students' learning",
 "PU3"  = "Wikipedia is useful for teaching",
 
 #Perceived Ease of Use
 "PEU1" = "Wikipedia is user-friendly",
 "PEU2" = "It is easy to find in Wikipedia the information you seek",
-"PEU3"  = "It is easy to add or edit information in Wikipedia",
+"PEU3" = "It is easy to add or edit information in Wikipedia",
 
 # Quality
 "Qu1" = "Articles in Wikipedia are reliable",
@@ -71,17 +75,50 @@ labels_list <- labels_vector %>% as.list()
 
 ```{r}
 
-dta %>% 
-  glimpse()
+dta %>% count(PU1)
+
 
 labelled::var_label(dta) <- labels_list
 
 
-dta %>% 
+likert_levels <- c(
+  "Strongly disagree"  = "1",
+  "Disagree" = "2",
+  "Neutral" = "3",
+  "Agree" = "4",
+  "Strongly agree"  = "5"
+)
+
+domain_levels <- c(
+  
+  "Arts & Humanities" = "1",
+  "Sciences" = "2",
+  "Health Sciences" = "3",
+  "Engineering & Architecture" = "4",
+  "Law & Politics" = "5"
+  
+)
+
+        
+  # Recode to "Agree".. "Disagree"
+
+dta %>%
   mutate(
-    across(all_of(names(labels_list)),as.numeric)
+    across(all_of(names(labels_list)), ~{
+      fct_recode(as.factor(.), !!!likert_levels)
+    })
   ) %>% 
-  glimpse()
+  
+  # Recode Gender and Donain
+  mutate(
+    gender = case_when(
+                       GENDER == 1 ~ "Female",
+                       GENDER == 0 ~ "Male",
+                       TRUE ~ NA_character_
+                       ),
+    domain = fct_recode(as.factor(DOMAIN), !!!domain_levels)
+            
+  ) 
 
 
 ```

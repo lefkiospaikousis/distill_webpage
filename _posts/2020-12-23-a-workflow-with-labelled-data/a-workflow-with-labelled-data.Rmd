@@ -182,7 +182,8 @@ plot_overall <-
 plot_overall
 ```
 
-Now, you don;t need to type in manually the axis title label. Just use the `labels_list`
+Now, you don;t need to type in manually the axis title label. Just use the `labels_list`    
+
 ```{r}
 
 plot_overall  +
