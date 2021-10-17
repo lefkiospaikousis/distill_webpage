@@ -9,13 +9,13 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-I am a mathematician and I am very fond of data analysis, visualisation, statistical modelling, automation and building interactive web applications. I am dedicated to turning research and business data into knowledge.
+I am very fond of data analysis, visualisation, statistical modelling, automation and building interactive web applications. I am dedicated to turning research and business data into knowledge.
 
 I collaborate with both the private sector, for data analysis - statistical programming - visualisation, and academic researchers with survey design and analysis.
 
 My core competencies are:
 
-* Statistical computing: I can identify and analyze trends or patterns in data sets through the use of the statistical computing language R.
+* Statistical computing: I can identify and analyze trends or patterns in data sets through the use of the [statistical computing language R](https://www.r-project.org/).
 
 * Reproducibility: I can create reports in Rmarkdown documents. Rmarkdown enables reproducibility and knowledge sharing in an effective manner.
 
