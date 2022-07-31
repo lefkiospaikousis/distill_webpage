@@ -1,5 +1,5 @@
 ---
-title: "How fast is {arrow}"
+title: "How fast is reading .parquet files with {arrow}"
 description: |
   We compare reading times of csv files with different packages such as {readr},
   {data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.
@@ -23,6 +23,8 @@ What I am primarily interested in, is the data format `.parquet`. It is advertis
 See more info on the [{arrow}](https://arrow.apache.org/docs/r/) package.
 
 Want to learn a bit more for Apache Arrow and dplyr for exploratory data analysis, see this [amazing presentation](https://jthomasmock.github.io/arrow-dplyr/#/) by [Tom Mock](https://twitter.com/thomas_mock)
+
+Last, the code for the entire analysis canbe found on [github](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-arrow)    
 
 Enough bla bla... Let's code now.   
 
