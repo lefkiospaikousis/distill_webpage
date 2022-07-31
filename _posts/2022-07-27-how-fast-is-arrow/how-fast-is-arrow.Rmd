@@ -1,0 +1,437 @@
+---
+title: "How fast is {arrow}"
+description: |
+  We compare reading times of csv files with different packages such as {readr},
+  {data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.
+author:
+  - name: Lefkios  Paikousis
+    url: https://www.linkedin.com/in/lefkios/
+date: 2022-07-27
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+What I am primarily interested in, is the data format `.parquet`. It is advertised as [__an open source, column-oriented data file format designed for efficient data storage and retrieval__](https://parquet.apache.org/). Well, the column oriented seems to be aligned with how R works. 
+
+
+See more info on the [{arrow}](https://arrow.apache.org/docs/r/) package.
+
+Want to learn a bit more for Apache Arrow and dplyr for exploratory data analysis, see this [amazing presentation](https://jthomasmock.github.io/arrow-dplyr/#/) by [Tom Mock](https://twitter.com/thomas_mock)
+
+Enough bla bla... Let's code now.   
+
+First, the needed libraries.   
+
+
+```{r libraries, message=FALSE, warning=FALSE}
+library(arrow)
+library(data.table)
+library(readr)
+
+library(palmerpenguins)
+
+library(waldo) # to compare outputs when reading
+library(gt)
+library(glue)
+library(tidyverse)
+```
+
+### The dataset
+
+I am going to use the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins){target="_blank"} dataset. It's a dataset with 3 character columns and 5 numeric ones.    
+
+Will do the following    
+
+- Increase the row size to 100,000
+- Turn factor columns to character
+
+```{r}
+dta <- palmerpenguins::penguins
+
+ids <- sample(nrow(dta), 100000,  replace = TRUE)
+
+dta <- dta[ids,] %>% mutate(across(where(is.factor), as.character))
+
+```
+
+### Write data to disk
+
+We write a `.csv` version, and a `.parquet` version    
+
+```{r}
+
+temp_file_csv <- tempfile(pattern = ".csv")
+
+temp_file_parquet <- tempfile(pattern = ".parquet")
+
+write.csv(dta, temp_file_csv, row.names = FALSE)
+
+arrow::write_parquet(dta, temp_file_parquet)
+
+```
+
+### The comparison
+
+I use the [`{bench}` package](https://bench.r-lib.org/index.html){target="_blank"}.
+
+::: {style="font-size:8pt"}
+Note the `check = FALSE` argument in `bench::mark()`. This argument checks whether the [results of the different methods are consistent](https://bench.r-lib.org/reference/mark.html){target="_blank"}. There is a reason I deactivate it, and I check manually [later on](#Same%20results)
+:::
+
+```{r}
+set.seed(123)
+
+n_iterations <- 20
+
+res <- bench::mark(check = FALSE,
+                   
+                   "base::read.csv"        = read.csv(temp_file_csv),
+                   "arrow::read_csv_arrow" = arrow::read_csv_arrow(temp_file_csv),
+                   "readr::read_csv"       = readr::read_csv(
+                     temp_file_csv,  
+                     show_col_types = FALSE, 
+                     progress = FALSE),
+                   "data.table::fread"     = data.table::fread(temp_file_csv),
+                   "arrow::read_parquet"   = arrow::read_parquet(temp_file_parquet),
+                   
+                   iterations = n_iterations
+)
+
+```
+
+#### Results
+
+
+The winner is: `data.table::fread`!     
+
+`data.table::fread` and `arrow::read_parquet` have comparable speed.    
+However, `data.table` consumes much more memory (5.87MB) compared to 
+`arrow::read_parquet` (1.08MB)   
+
+```{r}
+res %>% 
+  select(expression, min, median, mem_alloc)
+
+```
+
+<br>
+
+
+```{r echo=FALSE}
+
+n_rows <- prettyNum(nrow(dta), big.mark = ",", scientific = FALSE)
+n_cols_char <- dta %>% select(where(is.character)) %>% ncol()
+
+subtitle <- glue::glue("
+N={n_rows} ;{n_cols_char} character and {ncol(dta) - n_cols_char} numeric columns
+{n_iterations} iterations
+                       ")
+
+res %>% 
+  transmute(
+    method = names(expression), median
+  ) %>% 
+  mutate(method = reorder(method, desc(median))) %>% 
+  ggplot(aes(method, median))+
+  geom_col(width = 0.5)+
+  coord_flip()+
+  scale_y_continuous(labels = function(x) paste0(x, " ms"), expand = c(0,0))+
+  labs(
+    title = "Median reading time", x = "", y = "",
+    subtitle = subtitle,
+    caption = "bench::mark() results - code @ github"
+  )+
+  theme_classic()
+```
+
+#### Size on disk
+
+Significantly lower file size for the `.parquet` file compared to the `.csv`.   
+
+```{r echo=FALSE}
+c_size <- round(file.info(temp_file_csv)$size/1024^2, 2)
+cat(".csv size: ", c_size, "MB\n")
+
+p_size <- round(file.info(temp_file_parquet)$size/ 1024^2, 2)
+cat(".parquet size: ", p_size, "MB\n")
+
+```
+
+
+```{r eval=FALSE, include=FALSE}
+#### Memory allocation
+res %>% 
+  transmute(
+    method = names(expression),
+    mem_alloc = mem_alloc / 1024^2
+  ) %>% 
+  mutate(method = reorder(method, desc(mem_alloc))) %>%
+  filter(method != "base::read.csv") %>% 
+  ggplot(aes(method, mem_alloc))+
+  geom_col(width = 0.5)+
+  coord_flip()+
+  scale_y_continuous(labels = scales::label_number(suffix = " MB"), expand = c(0.01,0))+
+  labs(title = "Memory Allocation when reading", 
+       y = "", x = "",
+       subtitle = subtitle
+  )+
+  theme_classic()
+
+```
+
+### Does the content matter?
+
+A (rough) check whether the column type [characters or numbers] have any effect on the reading time.
+
+I create 3 datasets; one with mostly numeric columns, one with mostly character columns and one with half numeric and half character columns
+
+```{r}
+# borrowed from 
+# https://bench.r-lib.org/index.html#benchpress
+create_numeric_df <- function(rows, cols) {
+  as.data.frame(setNames(
+    replicate(cols, runif(rows, 1, 1000), simplify = FALSE),
+    rep_len(c("x", letters), cols)))
+}
+
+create_character_df <- function(rows, cols) {
+  as.data.frame(setNames(
+    replicate(cols, sample(month.name, rows, replace = TRUE), simplify = FALSE),
+    rep_len(c("x", LETTERS), cols)))
+}
+
+
+n_cols <- 10; n_rows <- 100000
+
+some_string <- c("a string here", "a string there")
+
+# Mostly numeric. 9 numeric and 1 character
+dta_numeric <- create_numeric_df(n_rows,n_cols) 
+dta_numeric$x = some_string
+
+# Mostly character 9 character and 1 numeric
+dta_character <- create_character_df(n_rows, n_cols)
+dta_character$x <- runif(n_rows, 1, 1000)
+
+# Mixed. 5 numeric - 5 character
+dta_mixed <- bind_cols(
+  dta_numeric[letters[1:5]],
+  dta_character[LETTERS[1:5]]
+)
+
+types <- c("numeric", "character", "mixed") %>% set_names()
+
+csv_files <- imap(types, ~ tempfile(., fileext = ".csv"))
+
+parquet_files <- imap(types, ~tempfile(., fileext = ".parquet"))
+
+# write the scv files
+walk2(csv_files, names(csv_files), function(path, type) {
+  
+  switch (type,
+          "numeric"   = write.csv(dta_numeric, path, row.names = FALSE),
+          "character" = write.csv(dta_character, path, row.names = FALSE),
+          "mixed"     = write.csv(dta_mixed, path, row.names = FALSE),
+          stop("No such type")
+  )
+  
+})
+
+# write the .parquet files
+walk2(parquet_files, names(parquet_files), function(path, type) {
+  
+  switch (type,
+          "numeric"   = arrow::write_parquet(dta_numeric, path),
+          "character" = arrow::write_parquet(dta_character, path),
+          "mixed"     = arrow::write_parquet(dta_mixed, path),
+          stop("No such type")
+  )
+  
+})
+
+```
+
+
+Let's run the comparison
+
+I use the [`bench::press()`](https://rdrr.io/cran/bench/man/press.html) to run a grid of comparisons across the 3 datasets.
+
+```{r}
+res_multi <- bench::press(
+  type = types,
+  {
+    set.seed(123)
+    
+    n_iterations <- 20
+    
+    res <- bench::mark(check = FALSE,
+                       
+                       "base::read.csv"          = read.csv(csv_files[[type]]),
+                       "arrow::read_csv_arrow"   = arrow::read_csv_arrow(csv_files[[type]]),
+                       "readr::read_csv"         = readr::read_csv(
+                         csv_files[[type]],  
+                         show_col_= FALSE, 
+                         progress = FALSE),
+                       "data.table::fread"       = data.table::fread(csv_files[[type]]),
+                       "arrow::read_parquet"     = arrow::read_parquet(parquet_files[[type]]),
+                       
+                       iterations = n_iterations
+    )
+    
+  }
+)
+
+# don't forget to cleanup
+walk(csv_files, unlink)
+walk(parquet_files, unlink)
+
+ggplot2::autoplot(res_multi, type = "violin")
+
+
+```
+
+#### Median reading times
+
+```{r echo=FALSE}
+
+n_rows <- prettyNum(nrow(dta_character), big.mark = ",", scientific = FALSE)
+n_cols_char <- dta_character %>% select(where(is.character)) %>% ncol()
+
+res_multi %>% 
+  transmute(
+    expression = names(expression), type, median) %>%
+  {.} %>% 
+  spread(type, median) %>%
+  arrange(mixed) %>% 
+  # group_by(type) %>% 
+  # arrange(median, .by_group = TRUE) %>% 
+  gt::gt() %>% 
+  tab_header(
+    title = "Median reading times",
+    subtitle = glue::glue("{n_rows} rows dataset")
+  ) %>% 
+  tab_spanner(
+    label = "Type of data",
+    columns = all_of(types)
+  ) %>% 
+  tab_footnote(
+    footnote = "The fastest in mostly numeric data",
+    locations = cells_body(
+      columns = numeric, rows = 2
+    )
+  )%>% 
+  tab_footnote(
+    footnote = "The fastest in mostly character or mixed data",
+    locations = cells_body(
+      columns = c(character, mixed), rows = 1
+    )
+  ) %>% 
+  tab_source_note(
+    source_note = md("`bench::mark()` results - *code @ github*")
+  ) 
+
+```
+
+
+```{r eval=FALSE, include=FALSE}
+#### Median times - Plot
+subtitle <- glue::glue("
+{n_rows} rows dataset with a) mostly character, b) mostly numeric, and c) mixed type data
+{n_iterations} iterations
+                       ")
+res_multi %>% 
+  transmute(
+    method = names(expression),
+    median,
+    type
+  ) %>% 
+  filter(method != "base::read.csv") %>% 
+  mutate(method = tidytext::reorder_within(method, desc(median), type)) %>% 
+  ggplot(aes(method, median))+
+  geom_col(width = 0.5)+
+  coord_flip()+
+  facet_wrap(~type, scales = "free_y")+
+  tidytext::scale_x_reordered()+
+  scale_y_continuous(labels = function(x) paste0(x, "ms"), expand = c(0,0))+
+  labs(
+    title = "Median reading time", x = "", y = "",
+    subtitle = subtitle,
+    caption = "bench::mark() results - code @ github"
+  )+
+  theme_classic()
+
+```
+
+
+### Same results, when reading the data files?
+
+Let's check that we get the same data back, when reading from disk with all these readers. I did use the `bench::mark(check = TRUE)` but it seems that when reading with the `readr::read_csv`, I get the `integer` columns `flipper_length_mm`, `body_mass_g` and `year` back as `double`
+
+```{r}
+readr::read_csv(temp_file_csv) %>% map_chr(typeof)
+
+```
+
+whereas the other readers (e.g. `data.table::fread`), return them as `integer`
+
+```{r}
+data.table::fread(temp_file_csv)%>% map_chr(typeof)
+
+```
+
+When I explicitly asked the `readr::read_csv` to read them as `integer` columns, then the only differences that remain are in the class of the object returned.
+
+```{r}
+
+csv_base       = read.csv(temp_file_csv)
+csv_arrow      = arrow::read_csv_arrow(temp_file_csv)
+csv_readr      = readr::read_csv(temp_file_csv, 
+                                 show_col_types = FALSE, progress = FALSE,
+                                 col_types = cols(
+                                   flipper_length_mm = col_integer(),
+                                   body_mass_g = col_integer(),
+                                   year = col_integer()
+                                 )
+)
+csv_data_table = data.table::fread(temp_file_csv)
+parquet_arrow  = arrow::read_parquet(temp_file_parquet)
+
+readers <- c("csv_base","csv_readr", "csv_arrow", "csv_data_table", "parquet_arrow")
+
+tbl_check <- expand.grid(
+  method1 = readers, method2 = readers, 
+  stringsAsFactors = FALSE
+) %>% 
+  filter(method1 <  method2) %>% 
+  mutate(
+    comparison = map2(method1, method2, ~waldo::compare(
+                        get(.x), get(.y),
+                        x_arg = .x, y_arg = .y
+                      )))
+
+tbl_check$comparison
+
+```
+
+
+Don't forget to clean up people
+
+```{r}
+unlink(temp_file_csv)
+unlink(temp_file_parquet)
+```
+
+
+
+That's it! Hope you enjoyed it
+
+
+
+
+
