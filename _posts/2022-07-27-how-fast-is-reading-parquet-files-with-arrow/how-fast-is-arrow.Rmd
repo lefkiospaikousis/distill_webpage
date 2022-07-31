@@ -24,7 +24,7 @@ See more info on the [{arrow}](https://arrow.apache.org/docs/r/) package.
 
 Want to learn a bit more for Apache Arrow and dplyr for exploratory data analysis, see this [amazing presentation](https://jthomasmock.github.io/arrow-dplyr/#/) by [Tom Mock](https://twitter.com/thomas_mock)
 
-Last, the code for the entire analysis canbe found on [github](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-arrow)    
+Last, the code for the entire analysis canbe found on [github](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow)    
 
 Enough bla bla... Let's code now.   
 
