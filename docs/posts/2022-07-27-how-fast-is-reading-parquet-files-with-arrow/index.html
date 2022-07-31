@@ -131,7 +131,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["How fast is reading .parquet files with {arrow}"]},{"type":"character","attributes":{},"value":["We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["2022-07-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/"]},{"type":"character","attributes":{},"value":["https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["How fast is reading .parquet files with {arrow}"]},{"type":"character","attributes":{},"value":["We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["arrow",".parquet",".csv","data.table","readr"]},{"type":"character","attributes":{},"value":["2022-07-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/"]},{"type":"character","attributes":{},"value":["https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2187,6 +2187,13 @@ d-code {
 <div class="d-title">
 <h1>How fast is reading .parquet files with {arrow}</h1>
 <!--radix_placeholder_categories-->
+<div class="dt-tags">
+  <a href="../../index.html#category:arrow" class="dt-tag">arrow</a>
+  <a href="../../index.html#category:.parquet" class="dt-tag">.parquet</a>
+  <a href="../../index.html#category:.csv" class="dt-tag">.csv</a>
+  <a href="../../index.html#category:data.table" class="dt-tag">data.table</a>
+  <a href="../../index.html#category:readr" class="dt-tag">readr</a>
+</div>
 <!--/radix_placeholder_categories-->
 <p><p>We compare reading times of csv files with different packages such
 as {readr}, {data.table} and {arrow}. We also compare the reading time
@@ -2216,7 +2223,7 @@ presentation</a> by <a href="https://twitter.com/thomas_mock">Tom
 Mock</a></p>
 <p>Last, the code for the entire analysis canbe found on <a
 href="https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow">github</a></p>
-<p>Enough bla bla… Let’s code now.</p>
+<p>Let’s code now.</p>
 <p>First, the needed libraries.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2316,11 +2323,11 @@ compared to <code>arrow::read_parquet</code> (1.08MB)</p>
 <pre><code># A tibble: 5 x 4
   expression                 min   median mem_alloc
   &lt;bch:expr&gt;            &lt;bch:tm&gt; &lt;bch:tm&gt; &lt;bch:byt&gt;
-1 base::read.csv         183.6ms    184ms   26.88MB
-2 arrow::read_csv_arrow   29.6ms   31.2ms    5.36MB
-3 readr::read_csv        137.4ms  142.8ms    1.45MB
-4 data.table::fread       14.9ms     18ms    5.87MB
-5 arrow::read_parquet     15.9ms   16.5ms    1.08MB</code></pre>
+1 base::read.csv           184ms  187.7ms   26.88MB
+2 arrow::read_csv_arrow   30.4ms   32.2ms    5.36MB
+3 readr::read_csv        139.6ms  143.1ms    1.45MB
+4 data.table::fread       16.7ms   17.8ms    5.87MB
+5 arrow::read_parquet     15.8ms   16.7ms    1.08MB</code></pre>
 </div>
 <p><br></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2809,25 +2816,25 @@ to run a grid of comparisons across the 3 datasets.</p>
   </thead>
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">arrow::read_parquet</td>
-<td class="gt_row gt_center">22.5ms</td>
-<td class="gt_row gt_center">36.0ms<sup class="gt_footnote_marks">1</sup></td>
-<td class="gt_row gt_center">26.5ms<sup class="gt_footnote_marks">1</sup></td></tr>
+<td class="gt_row gt_center">21.9ms</td>
+<td class="gt_row gt_center">34.0ms<sup class="gt_footnote_marks">1</sup></td>
+<td class="gt_row gt_center">26.3ms<sup class="gt_footnote_marks">1</sup></td></tr>
     <tr><td class="gt_row gt_left">data.table::fread</td>
-<td class="gt_row gt_center">22.9ms<sup class="gt_footnote_marks">2</sup></td>
+<td class="gt_row gt_center">22.1ms<sup class="gt_footnote_marks">2</sup></td>
 <td class="gt_row gt_center">43.5ms</td>
-<td class="gt_row gt_center">32.7ms</td></tr>
+<td class="gt_row gt_center">31.6ms</td></tr>
     <tr><td class="gt_row gt_left">arrow::read_csv_arrow</td>
-<td class="gt_row gt_center">60.1ms</td>
-<td class="gt_row gt_center">55.4ms</td>
-<td class="gt_row gt_center">56.1ms</td></tr>
+<td class="gt_row gt_center">52.5ms</td>
+<td class="gt_row gt_center">56.1ms</td>
+<td class="gt_row gt_center">54.7ms</td></tr>
     <tr><td class="gt_row gt_left">readr::read_csv</td>
-<td class="gt_row gt_center">197.8ms</td>
-<td class="gt_row gt_center">181.5ms</td>
-<td class="gt_row gt_center">181.4ms</td></tr>
+<td class="gt_row gt_center">184.4ms</td>
+<td class="gt_row gt_center">178.9ms</td>
+<td class="gt_row gt_center">186.5ms</td></tr>
     <tr><td class="gt_row gt_left">base::read.csv</td>
-<td class="gt_row gt_center">792.0ms</td>
-<td class="gt_row gt_center">241.2ms</td>
-<td class="gt_row gt_center">508.8ms</td></tr>
+<td class="gt_row gt_center">767.4ms</td>
+<td class="gt_row gt_center">241.0ms</td>
+<td class="gt_row gt_center">505.6ms</td></tr>
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>

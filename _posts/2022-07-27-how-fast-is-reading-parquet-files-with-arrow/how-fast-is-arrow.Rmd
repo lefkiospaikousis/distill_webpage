@@ -6,6 +6,12 @@ description: |
 author:
   - name: Lefkios  Paikousis
     url: https://www.linkedin.com/in/lefkios/
+categories: 
+  - arrow
+  - .parquet
+  - .csv
+  - data.table
+  - readr
 date: 2022-07-27
 output:
   distill::distill_article:
@@ -26,7 +32,8 @@ Want to learn a bit more for Apache Arrow and dplyr for exploratory data analysi
 
 Last, the code for the entire analysis canbe found on [github](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow)    
 
-Enough bla bla... Let's code now.   
+
+Let's code now.   
 
 First, the needed libraries.   
 
