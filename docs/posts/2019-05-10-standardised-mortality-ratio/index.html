@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
 <title>Lefkios Paikousis: Standardised Mortality Ratio</title>
@@ -127,7 +130,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["ECDC-data/2012.xlsx","ECDC-data/2013.xlsx","ECDC-data/2014.xlsx","ECDC-data/2015.xlsx","ECDC-data/2016.xlsx","ECDC-data/2017.xlsx","ECDC-data/Data cannot be public for now.txt","smr_confidence_interval.PNG","standardised-mortality-ratio_files/anchor-4.2.2/anchor.min.js","standardised-mortality-ratio_files/bowser-1.9.3/bowser.min.js","standardised-mortality-ratio_files/distill-2.2.21/template.v2.js","standardised-mortality-ratio_files/header-attrs-2.6/header-attrs.js","standardised-mortality-ratio_files/jquery-1.11.3/jquery.min.js","standardised-mortality-ratio_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["ECDC-data/2012.xlsx","ECDC-data/2013.xlsx","ECDC-data/2014.xlsx","ECDC-data/2015.xlsx","ECDC-data/2016.xlsx","ECDC-data/2017.xlsx","ECDC-data/Data cannot be public for now.txt","smr_confidence_interval.PNG","standardised-mortality-ratio_files/anchor-4.2.2/anchor.min.js","standardised-mortality-ratio_files/bowser-1.9.3/bowser.min.js","standardised-mortality-ratio_files/distill-2.2.21/template.v2.js","standardised-mortality-ratio_files/header-attrs-2.13/header-attrs.js","standardised-mortality-ratio_files/jquery-3.6.0/jquery-3.6.0.js","standardised-mortality-ratio_files/jquery-3.6.0/jquery-3.6.0.min.js","standardised-mortality-ratio_files/jquery-3.6.0/jquery-3.6.0.min.map","standardised-mortality-ratio_files/popper-2.6.0/popper.min.js","standardised-mortality-ratio_files/tippy-6.2.7/tippy-bundle.umd.min.js","standardised-mortality-ratio_files/tippy-6.2.7/tippy-light-border.css","standardised-mortality-ratio_files/tippy-6.2.7/tippy.css","standardised-mortality-ratio_files/tippy-6.2.7/tippy.umd.min.js","standardised-mortality-ratio_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -473,7 +476,7 @@ d-title {
 
 </style>
 
-<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
 <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1045,10 +1048,6 @@ figure img.external {
   position: relative;
   margin-bottom: 2.5em;
   margin-top: 1.5em;
-}
-
-.figure img {
-  width: 100%;
 }
 
 .figure .caption {
@@ -1880,7 +1879,16 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+        var fn = $(this).children()[0]
+        $(this).html(fn.shadowRoot.querySelector("sup"))
+        $(this).id = fn.id
+        fn.remove()
+      }
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        return "<p>" + $('#ref-' + ref).html() + "</p>";
+      }).join("\n");
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -1891,6 +1899,31 @@ function init_distill() {
         placement: 'bottom-start'
       });
     });
+
+    // fix footnotes in tables (#411)
+    // replacing broken distill.pub feature
+    $('table d-footnote').each(function() {
+      // we replace internal showAtNode methode which is triggered when hovering a footnote
+      this.hoverBox.showAtNode = function(node) {
+        // ported from https://github.com/distillpub/template/pull/105/files
+        calcOffset = function(elem) {
+            let x = elem.offsetLeft;
+            let y = elem.offsetTop;
+            // Traverse upwards until an `absolute` element is found or `elem`
+            // becomes null.
+            while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                x += elem.offsetLeft;
+                y += elem.offsetTop;
+            }
+
+            return { left: x, top: y };
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+        const bbox = node.getBoundingClientRect();
+        const offset = calcOffset(node);
+        this.show([offset.left + bbox.width, offset.top + bbox.height]);
+      }
+    })
 
     // clear polling timer
     clearInterval(tid);
@@ -1990,6 +2023,8 @@ function init_common() {
   // mark non-body figures created by knitr chunks as 100% width
   $('.layout-chunk').each(function(i, val) {
     var figures = $(this).find('img, .html-widget');
+    // ignore leaflet img layers (#106)
+    figures = figures.filter(':not(img[class*="leaflet"])')
     if ($(this).attr('data-layout') !== "l-body") {
       figures.css('width', '100%');
     } else {
@@ -2012,7 +2047,7 @@ function init_common() {
   // get rid of index.html references in header
   if (window.location.protocol !== "file:") {
     $('.distill-site-header a[href]').each(function(i,val) {
-      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
     });
   }
 
@@ -2051,8 +2086,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.13/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -2153,7 +2192,8 @@ d-code {
 </div>
 
 <div class="d-byline">
-  Lefkios Paikousis <a href="https://www.linkedin.com/in/lefkios/" class="uri">https://www.linkedin.com/in/lefkios/</a> 
+  Lefkios Paikousis <a href="https://www.linkedin.com/in/lefkios/"
+class="uri">https://www.linkedin.com/in/lefkios/</a> 
   
 <br/>05-10-2019
 </div>
@@ -2165,15 +2205,18 @@ d-code {
 <ul>
 <li><a href="#what-you-can-learn">What you can learn</a></li>
 <li><a href="#the-smr">The SMR</a></li>
-<li><a href="#read-files">Read files</a></li>
+<li><a href="#read-file">Read file</a></li>
 <li><a href="#aggregate">Aggregate</a></li>
 <li><a href="#the-confidence-interval">The Confidence Interval</a></li>
 </ul>
 </nav>
 </div>
-<p>This is a reminder to myself (and to whoever finds this usefull) on the calculation of:</p>
+<p>This is a reminder to myself (and to whoever finds this useful) on
+the calculation of:</p>
 <ul>
-<li>the <a href="https://en.wikipedia.org/wiki/Standardized_mortality_ratio">Standardised Mortality Ratio</a> (SMR)<br />
+<li>the <a
+href="https://en.wikipedia.org/wiki/Standardized_mortality_ratio">Standardised
+Mortality Ratio</a> (SMR)<br />
 </li>
 <li>The Confidence Interval of the SMR</li>
 </ul>
@@ -2183,58 +2226,41 @@ d-code {
 <li>Some use of regular expressions</li>
 <li>creating functions and use them to avoid repeat myself</li>
 <li>Read (multiple) excel data into R</li>
-<li>Function programming basics using the package <a href="https://purrr.tidyverse.org/">purrr</a>, <a href="https://towardsdatascience.com/functional-programming-in-r-with-purrr-469e597d0229">intro</a>, <a href="https://www.hvitfeldt.me/blog/purrr-tips-and-tricks/">usefull</a></li>
+<li>Function programming basics using the package <a
+href="https://purrr.tidyverse.org/">purrr</a>, <a
+href="https://towardsdatascience.com/functional-programming-in-r-with-purrr-469e597d0229">intro</a>,
+<a
+href="https://www.hvitfeldt.me/blog/purrr-tips-and-tricks/">usefull</a></li>
 <li>The <code>rowwise</code> function</li>
-<li><code>list.files</code> function and the <code>set_names</code> from <code>purrr</code> to make it easy to map the files into functions and keep a record of what comes from</li>
+<li><code>list.files</code> function and the <code>set_names</code> from
+<code>purrr</code> to make it easy to map the files into functions and
+keep a record of what comes from</li>
 </ul>
 <h2 id="the-smr">The SMR</h2>
-<p>The SMR is calculated as the ratio of observed hospital mortality over predicted hospital mortality.</p>
+<p>The SMR is calculated as the ratio of observed hospital mortality
+over predicted hospital mortality.</p>
 <p>I have data on ~1000 patients of the iCU and the following info:</p>
 <ul>
 <li>SAPS II score</li>
 <li>ICU mortality (death/alive)</li>
 </ul>
-<p>The data are in sepate excel workbooks named <em>2012.xlsx</em>, <em>2013.xlsx</em> etc.. until 2017, in the folder <em>“ECDC data”</em> in my working directory (my project)</p>
-<h2 id="read-files">Read files</h2>
+<p>The data are in separate <code>.rds</code> file my working
+directory</p>
+<h2 id="read-file">Read file</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
 
-<span class='co'># create a vector of the file names</span>
-<span class='va'>list_of_files</span> <span class='op'>=</span> 
-  <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span><span class='op'>(</span>path <span class='op'>=</span> <span class='st'>"ECDC-data"</span>, pattern <span class='op'>=</span> <span class='st'>".xlsx$"</span>, full.names <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='co'># name the vectors. It will be usefull to map the names to the read_xlsx function to get all data at once (purrr magic..)</span>
-  <span class='fu'>set_names</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>location</span> <span class='op'>&lt;-</span> <span class='st'>"_posts/2019-05-10-standardised-mortality-ratio/"</span>
 
-
-<span class='co'># Map the file names to the readxl:: read_xlsx function to read all excel files and once. </span>
-<span class='co'># Combine all the workbooks into a dataframe. </span>
-<span class='co'># Also, capture the filename as an `id` variable in the dataframe</span>
-
-<span class='va'>all_data</span> <span class='op'>=</span> 
-<span class='fu'>map_df</span><span class='op'>(</span> <span class='va'>list_of_files</span>,
-        <span class='op'>~</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span>path <span class='op'>=</span> <span class='va'>.</span>,
-                             <span class='co'># get some columns only (i have a lot)</span>
-                             range <span class='op'>=</span> <span class='fu'>readxl</span><span class='fu'>::</span><span class='fu'><a href='https://readxl.tidyverse.org/reference/cell-specification.html'>cell_cols</a></span><span class='op'>(</span><span class='st'>"A:M"</span><span class='op'>)</span><span class='op'>)</span>,
-        .id <span class='op'>=</span> <span class='st'>"dataset"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='co'>#get the year from the dataset name - use some regular expressions</span>
-  <span class='fu'>mutate</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fu'>str_extract</span><span class='op'>(</span><span class='va'>dataset</span>, pattern <span class='op'>=</span><span class='st'>"[0-9]+"</span> <span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='co'># Do some cleaning </span>
-  <span class='fu'>janitor</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/janitor/man/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='co'># the column names</span>
-  <span class='co'># remove no saps score and no info on death</span>
-  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>saps_ii</span><span class='op'>)</span>,
-         <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>outcome_at_icu_discharge</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>mutate</span><span class='op'>(</span>death <span class='op'>=</span> <span class='fu'>if_else</span><span class='op'>(</span><span class='va'>outcome_at_icu_discharge</span> <span class='op'>==</span> <span class='st'>"Alive"</span>, <span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='co'># Select relevant variables only</span>
-  <span class='fu'>select</span><span class='op'>(</span><span class='va'>year</span>,<span class='va'>death</span>, <span class='va'>saps_ii</span>, <span class='va'>type_of_admision</span><span class='op'>)</span> 
+<span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/readRDS.html'>readRDS</a></span><span class='op'>(</span><span class='fu'>here</span><span class='fu'>::</span><span class='fu'><a href='https://here.r-lib.org//reference/here.html'>here</a></span><span class='op'>(</span><span class='va'>location</span>, <span class='st'>"dta.rds"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <p>Here is a bit of an output</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>all_data</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dta</span> <span class='op'>%&gt;%</span> 
   <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
@@ -2313,11 +2339,12 @@ d-code {
 </table>
 </div>
 <h2 id="aggregate">Aggregate</h2>
-<p>Lets aggregate by year, the observed mortality, and the median SAPS II score</p>
+<p>Lets aggregate by year, the observed mortality, and the median SAPS
+II score</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code>  <span class='va'>all_data_aggr</span> <span class='op'>=</span> 
-  <span class='va'>all_data</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r">  <span class='va'>dta_aggr</span> <span class='op'>=</span> 
+  <span class='va'>dta</span> <span class='op'>%&gt;%</span> 
     <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
     <span class='fu'>summarise</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span>,
               obs_mortality <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>death</span><span class='op'>)</span>,
@@ -2326,7 +2353,7 @@ d-code {
               med_saps <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/median.html'>median</a></span><span class='op'>(</span><span class='va'>saps_ii</span><span class='op'>)</span>
               <span class='op'>)</span> 
 
-  <span class='va'>all_data_aggr</span> <span class='op'>%&gt;%</span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
+  <span class='va'>dta_aggr</span> <span class='op'>%&gt;%</span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 <table>
@@ -2386,14 +2413,19 @@ d-code {
 </table>
 </div>
 <p>Now I need to calculate the predicted mortality by year.<br />
-The predicted mortality is <a href="https://clincalc.com/IcuMortality/SAPSII.aspx">derived from the SAPS II score</a> as follows:</p>
-<p><span class="math inline">\(logit = -7.7631 + 0.0737*Score + 0.9971*ln(Score+1)\)</span></p>
+The predicted mortality is <a
+href="https://clincalc.com/IcuMortality/SAPSII.aspx">derived from the
+SAPS II score</a> as follows:</p>
+<p><span class="math inline">\(logit = -7.7631 + 0.0737*Score +
+0.9971*ln(Score+1)\)</span></p>
 <p>and then</p>
-<p><span class="math inline">\(Mortality = \frac{e^{logit}}{1+e^{logit}}\)</span></p>
-<p>Here I need a function that has the saps II score as an input and returns the predicted mortality</p>
+<p><span class="math inline">\(Mortality =
+\frac{e^{logit}}{1+e^{logit}}\)</span></p>
+<p>Here I need a function that has the saps II score as an input and
+returns the predicted mortality</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>predict_mortality</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>score</span><span class='op'>)</span><span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>predict_mortality</span> <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>score</span><span class='op'>)</span><span class='op'>{</span>
   <span class='va'>logit</span> <span class='op'>=</span> <span class='op'>-</span><span class='fl'>7.7631</span> <span class='op'>+</span> <span class='fl'>0.0737</span> <span class='op'>*</span> <span class='va'>score</span> <span class='op'>+</span> <span class='fl'>0.9971</span> <span class='op'>*</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>score</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span>
   <span class='va'>mortality</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>logit</span><span class='op'>)</span><span class='op'>/</span> <span class='op'>(</span><span class='fl'>1</span><span class='op'>+</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='va'>logit</span><span class='op'>)</span><span class='op'>)</span>
   <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>mortality</span><span class='op'>)</span>
@@ -2401,11 +2433,12 @@ The predicted mortality is <a href="https://clincalc.com/IcuMortality/SAPSII.asp
 </code></pre>
 </div>
 </div>
-<p>Now lets use our function <code>predict_mortality</code> to calculate the predicted mortality out of the SAPS II score</p>
+<p>Now lets use our function <code>predict_mortality</code> to calculate
+the predicted mortality out of the SAPS II score</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code>  <span class='va'>smr_table</span> <span class='op'>=</span> 
-  <span class='va'>all_data_aggr</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r">  <span class='va'>smr_table</span> <span class='op'>=</span> 
+  <span class='va'>dta_aggr</span> <span class='op'>%&gt;%</span> 
     <span class='fu'>mutate</span><span class='op'>(</span>pred_mortality_rate <span class='op'>=</span> <span class='fu'>predict_mortality</span><span class='op'>(</span><span class='va'>med_saps</span><span class='op'>)</span>,
            <span class='co'># get expecte counts of deaths</span>
            pred_mortality <span class='op'>=</span> <span class='va'>pred_mortality_rate</span> <span class='op'>*</span> <span class='va'>n</span>,
@@ -2504,17 +2537,35 @@ The predicted mortality is <a href="https://clincalc.com/IcuMortality/SAPSII.asp
 </table>
 </div>
 <h2 id="the-confidence-interval">The Confidence Interval</h2>
-<p>An approximate 95% confidence interval (CI) for the SMR was calculated by using the method proposed by <strong>Vandenbroucke JP. A shortcut method for calculating the 95 percent confidence interval of the standardized mortality ratio. (Letter). Am J Epidemiol 1982; 115:303-4.</strong></p>
-<p>I found the formulas of all possible CI calculations for the SMR <a href="https://www.openepi.com/PDFDocs/SMRDoc.pdf">here</a>. It is the documentation of the <a href="http://web1.sph.emory.edu/users/cdckms/exact-midP-SMR.html">this</a> and <a href="https://www.openepi.com/SMR/SMR.htm">this</a> online calculators</p>
-<p>I tried out a few formulas in the documentation, specifically the ones that are called <em>approximations</em></p>
-<p>I haven’t tried the Exact Tests calculations - I think they need more programming + I couldn’t figure out how I am supposed to do the iterative process. Perhaps its easy and don’t have time to think about it :)</p>
+<p>An approximate 95% confidence interval (CI) for the SMR was
+calculated by using the method proposed by <strong>Vandenbroucke JP. A
+shortcut method for calculating the 95 percent confidence interval of
+the standardized mortality ratio. (Letter). Am J Epidemiol 1982;
+115:303-4.</strong></p>
+<p>I found the formulas of all possible CI calculations for the SMR <a
+href="https://www.openepi.com/PDFDocs/SMRDoc.pdf">here</a>. It is the
+documentation of the <a
+href="http://web1.sph.emory.edu/users/cdckms/exact-midP-SMR.html">this</a>
+and <a href="https://www.openepi.com/SMR/SMR.htm">this</a> online
+calculators</p>
+<p>I tried out a few formulas in the documentation, specifically the
+ones that are called <em>approximations</em></p>
+<p>I haven’t tried the Exact Tests calculations - I think they need more
+programming + I couldn’t figure out how I am supposed to do the
+iterative process. Perhaps its easy and don’t have time to think about
+it :)</p>
 <p>Well i tried this approximation by Vanderbroucke</p>
-<p><img src="smr_confidence_interval.png" /></p>
-<p>Beware that the <span class="math inline">\(\sqrt(α)\)</span> refers to the observed mortality and the <span class="math inline">\(λ\)</span> to the predicted mortality. DO NOT confuse with the <span class="math inline">\(α\)</span> of the Z score (i.e. the 1.96)</p>
-<p>So I created this function, that reads the observed and predicted mortality (actual counts) and returns a vector of 2 values. The 1st is the lower limit, and the 2nd the upper limit</p>
+<p><img src="smr_confidence_interval.PNG" /></p>
+<p>Beware that the <span class="math inline">\(\sqrt(α)\)</span> refers
+to the observed mortality and the <span class="math inline">\(λ\)</span>
+to the predicted mortality. DO NOT confuse with the <span
+class="math inline">\(α\)</span> of the Z score (i.e. the 1.96)</p>
+<p>So I created this function, that reads the observed and predicted
+mortality (actual counts) and returns a vector of 2 values. The 1st is
+the lower limit, and the 2nd the upper limit</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>smr_conf</span> <span class='op'>=</span>  <span class='kw'>function</span><span class='op'>(</span><span class='va'>observed</span>, <span class='va'>predicted</span><span class='op'>)</span><span class='op'>{</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>smr_conf</span> <span class='op'>=</span>  <span class='kw'>function</span><span class='op'>(</span><span class='va'>observed</span>, <span class='va'>predicted</span><span class='op'>)</span><span class='op'>{</span>
   
   <span class='va'>lower</span> <span class='op'>=</span> <span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>observed</span><span class='op'>)</span> <span class='op'>-</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='fl'>0.5</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span> <span class='va'>predicted</span>
   <span class='va'>upper</span> <span class='op'>=</span> <span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>observed</span><span class='op'>)</span> <span class='op'>+</span> <span class='fl'>1.96</span><span class='op'>*</span><span class='fl'>0.5</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>/</span> <span class='va'>predicted</span>
@@ -2526,11 +2577,13 @@ The predicted mortality is <a href="https://clincalc.com/IcuMortality/SAPSII.asp
 </div>
 </div>
 <p>Now lets use the <code>smr_table</code> we calculated earlier</p>
-<p><strong>NOTE HERE the use of</strong> <code>rowwise</code> function of <code>dplyr</code></p>
-<p>The <code>rowwise</code> is needed since the inputs to the the function are taken rowwise</p>
+<p><strong>NOTE HERE the use of</strong> <code>rowwise</code> function
+of <code>dplyr</code></p>
+<p>The <code>rowwise</code> is needed since the inputs to the the
+function are taken rowwise</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>smr_table</span> <span class='op'>%&gt;%</span> 
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>smr_table</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>rowwise</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
   <span class='fu'>mutate</span><span class='op'>(</span> lower_95 <span class='op'>=</span> <span class='fu'>smr_conf</span><span class='op'>(</span><span class='va'>obs_mortality</span>, <span class='va'>pred_mortality</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>,
           upper_95 <span class='op'>=</span> <span class='fu'>smr_conf</span><span class='op'>(</span><span class='va'>obs_mortality</span>, <span class='va'>pred_mortality</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
@@ -2640,20 +2693,21 @@ The predicted mortality is <a href="https://clincalc.com/IcuMortality/SAPSII.asp
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Standardised%20Mortality%20Ratio&amp;url=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F">
-        <i class="fab fa-twitter"></i>
+      <a href="https://twitter.com/share?text=Standardised%20Mortality%20Ratio&amp;url=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F" aria-label="share on twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F&amp;title=Standardised%20Mortality%20Ratio">
-        <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F&amp;title=Standardised%20Mortality%20Ratio" aria-label="share on linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
-      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F">
-        <i class="fab fa-facebook"></i>
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=https%3A%2F%2Flefkiospaikousis.netlify.app%2Fposts%2F2019-05-10-standardised-mortality-ratio%2F" aria-label="share on facebook">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
     </span>
   </p>

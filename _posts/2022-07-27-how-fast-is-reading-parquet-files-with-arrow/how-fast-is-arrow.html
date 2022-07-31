@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,11 +74,11 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
@@ -85,8 +86,9 @@ code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
-  <title>How fast is {arrow}</title>
+  <title>How fast is reading .parquet files with {arrow}</title>
 
   <meta property="description" itemprop="description" content="We compare reading times of csv files with different packages such as {readr},&#10;{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}."/>
 
@@ -97,21 +99,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta name="article:author" content="Lefkios  Paikousis"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="How fast is {arrow}"/>
+  <meta property="og:title" content="How fast is reading .parquet files with {arrow}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="We compare reading times of csv files with different packages such as {readr},&#10;{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="How fast is {arrow}"/>
+  <meta property="twitter:title" content="How fast is reading .parquet files with {arrow}"/>
   <meta property="twitter:description" content="We compare reading times of csv files with different packages such as {readr},&#10;{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["How fast is {arrow}"]},{"type":"character","attributes":{},"value":["We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["2022-07-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["How fast is reading .parquet files with {arrow}"]},{"type":"character","attributes":{},"value":["We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["2022-07-27"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -428,10 +430,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1263,7 +1261,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1274,6 +1281,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1373,6 +1405,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1395,7 +1429,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -1455,7 +1489,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"How fast is {arrow}","description":"We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://www.linkedin.com/in/lefkios/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-07-27T00:00:00.000+03:00","citationText":"Paikousis, 2022"}
+{"title":"How fast is reading .parquet files with {arrow}","description":"We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://www.linkedin.com/in/lefkios/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-07-27T00:00:00.000+03:00","citationText":"Paikousis, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1465,7 +1499,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>How fast is {arrow}</h1>
+<h1>How fast is reading .parquet files with {arrow}</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>We compare reading times of csv files with different packages such
@@ -1495,7 +1529,7 @@ href="https://jthomasmock.github.io/arrow-dplyr/#/">amazing
 presentation</a> by <a href="https://twitter.com/thomas_mock">Tom
 Mock</a></p>
 <p>Last, the code for the entire analysis canbe found on <a
-href="https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-arrow">github</a></p>
+href="https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow">github</a></p>
 <p>Enough bla bla… Let’s code now.</p>
 <p>First, the needed libraries.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1525,7 +1559,7 @@ character columns and 5 numeric ones.</p>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'>palmerpenguins</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/palmerpenguins/man/penguins.html'>penguins</a></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dta</span> <span class='op'>&lt;-</span> <span class='fu'>palmerpenguins</span><span class='fu'>::</span><span class='va'><a href='https://allisonhorst.github.io/palmerpenguins/reference/penguins.html'>penguins</a></span>
 
 <span class='va'>ids</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>dta</span><span class='op'>)</span>, <span class='fl'>100000</span>,  replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
@@ -1544,7 +1578,7 @@ version</p>
 
 <span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='op'>(</span><span class='va'>dta</span>, <span class='va'>temp_file_csv</span>, row.names <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta</span>, <span class='va'>temp_file_parquet</span><span class='op'>)</span>
+<span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta</span>, <span class='va'>temp_file_parquet</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
@@ -1568,13 +1602,13 @@ href="#Same%20results">later on</a></p>
 <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>bench</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bench/man/mark.html'>mark</a></span><span class='op'>(</span>check <span class='op'>=</span> <span class='cn'>FALSE</span>,
                    
                    <span class='st'>"base::read.csv"</span>        <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>,
-                   <span class='st'>"arrow::read_csv_arrow"</span> <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>,
-                   <span class='st'>"readr::read_csv"</span>       <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readr/man/read_delim.html'>read_csv</a></span><span class='op'>(</span>
+                   <span class='st'>"arrow::read_csv_arrow"</span> <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>,
+                   <span class='st'>"readr::read_csv"</span>       <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
                      <span class='va'>temp_file_csv</span>,  
                      show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span>, 
                      progress <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>,
-                   <span class='st'>"data.table::fread"</span>     <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/data.table/man/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>,
-                   <span class='st'>"arrow::read_parquet"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>temp_file_parquet</span><span class='op'>)</span>,
+                   <span class='st'>"data.table::fread"</span>     <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>,
+                   <span class='st'>"arrow::read_parquet"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>temp_file_parquet</span><span class='op'>)</span>,
                    
                    iterations <span class='op'>=</span> <span class='va'>n_iterations</span>
 <span class='op'>)</span>
@@ -1596,11 +1630,11 @@ compared to <code>arrow::read_parquet</code> (1.08MB)</p>
 <pre><code># A tibble: 5 x 4
   expression                 min   median mem_alloc
   &lt;bch:expr&gt;            &lt;bch:tm&gt; &lt;bch:tm&gt; &lt;bch:byt&gt;
-1 base::read.csv         179.8ms  181.7ms   26.88MB
-2 arrow::read_csv_arrow   29.2ms   31.4ms    5.36MB
-3 readr::read_csv        136.7ms    140ms    1.46MB
-4 data.table::fread       16.2ms   17.8ms    5.87MB
-5 arrow::read_parquet     16.2ms   16.6ms    1.08MB</code></pre>
+1 base::read.csv         183.6ms    184ms   26.88MB
+2 arrow::read_csv_arrow   29.6ms   31.2ms    5.36MB
+3 readr::read_csv        137.4ms  142.8ms    1.45MB
+4 data.table::fread       14.9ms     18ms    5.87MB
+5 arrow::read_parquet     15.9ms   16.5ms    1.08MB</code></pre>
 </div>
 <p><br></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1676,9 +1710,9 @@ columns</p>
 <span class='fu'>walk2</span><span class='op'>(</span><span class='va'>parquet_files</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>parquet_files</span><span class='op'>)</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>path</span>, <span class='va'>type</span><span class='op'>)</span> <span class='op'>{</span>
   
   <span class='kw'><a href='https://rdrr.io/r/base/switch.html'>switch</a></span> <span class='op'>(</span><span class='va'>type</span>,
-          <span class='st'>"numeric"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_numeric</span>, <span class='va'>path</span><span class='op'>)</span>,
-          <span class='st'>"character"</span> <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_character</span>, <span class='va'>path</span><span class='op'>)</span>,
-          <span class='st'>"mixed"</span>     <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_mixed</span>, <span class='va'>path</span><span class='op'>)</span>,
+          <span class='st'>"numeric"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_numeric</span>, <span class='va'>path</span><span class='op'>)</span>,
+          <span class='st'>"character"</span> <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_character</span>, <span class='va'>path</span><span class='op'>)</span>,
+          <span class='st'>"mixed"</span>     <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/write_parquet.html'>write_parquet</a></span><span class='op'>(</span><span class='va'>dta_mixed</span>, <span class='va'>path</span><span class='op'>)</span>,
           <span class='kw'><a href='https://rdrr.io/r/base/stop.html'>stop</a></span><span class='op'>(</span><span class='st'>"No such type"</span><span class='op'>)</span>
   <span class='op'>)</span>
   
@@ -1702,13 +1736,13 @@ to run a grid of comparisons across the 3 datasets.</p>
     <span class='va'>res</span> <span class='op'>&lt;-</span> <span class='fu'>bench</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bench/man/mark.html'>mark</a></span><span class='op'>(</span>check <span class='op'>=</span> <span class='cn'>FALSE</span>,
                        
                        <span class='st'>"base::read.csv"</span>          <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
-                       <span class='st'>"arrow::read_csv_arrow"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
-                       <span class='st'>"readr::read_csv"</span>         <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readr/man/read_delim.html'>read_csv</a></span><span class='op'>(</span>
+                       <span class='st'>"arrow::read_csv_arrow"</span>   <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
+                       <span class='st'>"readr::read_csv"</span>         <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span>
                          <span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span>,  
                          show_col_<span class='op'>=</span> <span class='cn'>FALSE</span>, 
                          progress <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>,
-                       <span class='st'>"data.table::fread"</span>       <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/data.table/man/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
-                       <span class='st'>"arrow::read_parquet"</span>     <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>parquet_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
+                       <span class='st'>"data.table::fread"</span>       <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
+                       <span class='st'>"arrow::read_parquet"</span>     <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>parquet_files</span><span class='op'>[[</span><span class='va'>type</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>,
                        
                        iterations <span class='op'>=</span> <span class='va'>n_iterations</span>
     <span class='op'>)</span>
@@ -1720,7 +1754,7 @@ to run a grid of comparisons across the 3 datasets.</p>
 <span class='fu'>walk</span><span class='op'>(</span><span class='va'>csv_files</span>, <span class='va'>unlink</span><span class='op'>)</span>
 <span class='fu'>walk</span><span class='op'>(</span><span class='va'>parquet_files</span>, <span class='va'>unlink</span><span class='op'>)</span>
 
-<span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/ggplot2/man/autoplot.html'>autoplot</a></span><span class='op'>(</span><span class='va'>res_multi</span>, type <span class='op'>=</span> <span class='st'>"violin"</span><span class='op'>)</span>
+<span class='fu'>ggplot2</span><span class='fu'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span><span class='op'>(</span><span class='va'>res_multi</span>, type <span class='op'>=</span> <span class='st'>"violin"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="how-fast-is-arrow_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
@@ -2089,25 +2123,25 @@ to run a grid of comparisons across the 3 datasets.</p>
   </thead>
   <tbody class="gt_table_body">
     <tr><td class="gt_row gt_left">arrow::read_parquet</td>
-<td class="gt_row gt_center">24.1ms</td>
-<td class="gt_row gt_center">35.7ms<sup class="gt_footnote_marks">1</sup></td>
-<td class="gt_row gt_center">26.0ms<sup class="gt_footnote_marks">1</sup></td></tr>
+<td class="gt_row gt_center">22.5ms</td>
+<td class="gt_row gt_center">36.0ms<sup class="gt_footnote_marks">1</sup></td>
+<td class="gt_row gt_center">26.5ms<sup class="gt_footnote_marks">1</sup></td></tr>
     <tr><td class="gt_row gt_left">data.table::fread</td>
-<td class="gt_row gt_center">22.8ms<sup class="gt_footnote_marks">2</sup></td>
-<td class="gt_row gt_center">44.5ms</td>
-<td class="gt_row gt_center">30.9ms</td></tr>
+<td class="gt_row gt_center">22.9ms<sup class="gt_footnote_marks">2</sup></td>
+<td class="gt_row gt_center">43.5ms</td>
+<td class="gt_row gt_center">32.7ms</td></tr>
     <tr><td class="gt_row gt_left">arrow::read_csv_arrow</td>
-<td class="gt_row gt_center">55.9ms</td>
-<td class="gt_row gt_center">53.7ms</td>
-<td class="gt_row gt_center">53.5ms</td></tr>
+<td class="gt_row gt_center">60.1ms</td>
+<td class="gt_row gt_center">55.4ms</td>
+<td class="gt_row gt_center">56.1ms</td></tr>
     <tr><td class="gt_row gt_left">readr::read_csv</td>
-<td class="gt_row gt_center">189.5ms</td>
-<td class="gt_row gt_center">185.1ms</td>
-<td class="gt_row gt_center">180.0ms</td></tr>
+<td class="gt_row gt_center">197.8ms</td>
+<td class="gt_row gt_center">181.5ms</td>
+<td class="gt_row gt_center">181.4ms</td></tr>
     <tr><td class="gt_row gt_left">base::read.csv</td>
-<td class="gt_row gt_center">791.2ms</td>
-<td class="gt_row gt_center">278.8ms</td>
-<td class="gt_row gt_center">474.3ms</td></tr>
+<td class="gt_row gt_center">792.0ms</td>
+<td class="gt_row gt_center">241.2ms</td>
+<td class="gt_row gt_center">508.8ms</td></tr>
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
@@ -2149,7 +2183,7 @@ columns <code>flipper_length_mm</code>, <code>body_mass_g</code> and
 <code>year</code> back as <code>double</code></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readr/man/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>map_chr</span><span class='op'>(</span><span class='va'>typeof</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>map_chr</span><span class='op'>(</span><span class='va'>typeof</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>          species            island    bill_length_mm 
@@ -2163,7 +2197,7 @@ columns <code>flipper_length_mm</code>, <code>body_mass_g</code> and
 return them as <code>integer</code></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/data.table/man/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span><span class='op'>%&gt;%</span> <span class='fu'>map_chr</span><span class='op'>(</span><span class='va'>typeof</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span><span class='op'>%&gt;%</span> <span class='fu'>map_chr</span><span class='op'>(</span><span class='va'>typeof</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>          species            island    bill_length_mm 
@@ -2179,17 +2213,17 @@ are in the class of the object returned.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>csv_base</span>       <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>
-<span class='va'>csv_arrow</span>      <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>
-<span class='va'>csv_readr</span>      <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/readr/man/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span>, 
+<span class='va'>csv_arrow</span>      <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_delim_arrow.html'>read_csv_arrow</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>
+<span class='va'>csv_readr</span>      <span class='op'>=</span> <span class='fu'>readr</span><span class='fu'>::</span><span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span>, 
                                  show_col_types <span class='op'>=</span> <span class='cn'>FALSE</span>, progress <span class='op'>=</span> <span class='cn'>FALSE</span>,
-                                 col_types <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/readr/man/cols.html'>cols</a></span><span class='op'>(</span>
-                                   flipper_length_mm <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/readr/man/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>,
-                                   body_mass_g <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/readr/man/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>,
-                                   year <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/readr/man/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>
+                                 col_types <span class='op'>=</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/cols.html'>cols</a></span><span class='op'>(</span>
+                                   flipper_length_mm <span class='op'>=</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>,
+                                   body_mass_g <span class='op'>=</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>,
+                                   year <span class='op'>=</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/parse_atomic.html'>col_integer</a></span><span class='op'>(</span><span class='op'>)</span>
                                  <span class='op'>)</span>
 <span class='op'>)</span>
-<span class='va'>csv_data_table</span> <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/data.table/man/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>
-<span class='va'>parquet_arrow</span>  <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/arrow/man/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>temp_file_parquet</span><span class='op'>)</span>
+<span class='va'>csv_data_table</span> <span class='op'>=</span> <span class='fu'>data.table</span><span class='fu'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span><span class='va'>temp_file_csv</span><span class='op'>)</span>
+<span class='va'>parquet_arrow</span>  <span class='op'>=</span> <span class='fu'>arrow</span><span class='fu'>::</span><span class='fu'><a href='https://arrow.apache.org/docs/r/reference/read_parquet.html'>read_parquet</a></span><span class='op'>(</span><span class='va'>temp_file_parquet</span><span class='op'>)</span>
 
 <span class='va'>readers</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"csv_base"</span>,<span class='st'>"csv_readr"</span>, <span class='st'>"csv_arrow"</span>, <span class='st'>"csv_data_table"</span>, <span class='st'>"parquet_arrow"</span><span class='op'>)</span>
 
