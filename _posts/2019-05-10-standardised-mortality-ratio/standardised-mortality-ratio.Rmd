@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-This is a reminder to myself (and to whoever finds this usefull) on the calculation of:   
+This is a reminder to myself (and to whoever finds this useful) on the calculation of:   
 
 - the [Standardised Mortality Ratio](https://en.wikipedia.org/wiki/Standardized_mortality_ratio)  (SMR)  
 - The Confidence Interval of the SMR
@@ -50,42 +50,18 @@ I have data on ~1000 patients of the iCU and the following info:
 - SAPS II score
 - ICU mortality (death/alive)
 
-The data are in sepate excel workbooks named _2012.xlsx_, _2013.xlsx_ etc.. until 2017, in the folder _"ECDC data"_ in my working directory (my project)
+The data are in separate `.rds` file my working directory
 
 
-## Read files
+## Read file
+
 ```{r READ FILES}
 
 library(tidyverse)
-library(readxl)
 
-# create a vector of the file names
-list_of_files = 
-  list.files(path = "ECDC-data", pattern = ".xlsx$", full.names = TRUE) %>% 
-  # name the vectors. It will be usefull to map the names to the read_xlsx function to get all data at once (purrr magic..)
-  set_names()
+location <- "_posts/2019-05-10-standardised-mortality-ratio/"
 
-
-# Map the file names to the readxl:: read_xlsx function to read all excel files and once. 
-# Combine all the workbooks into a dataframe. 
-# Also, capture the filename as an `id` variable in the dataframe
-
-all_data = 
-map_df( list_of_files,
-        ~ readxl::read_excel(path = .,
-                             # get some columns only (i have a lot)
-                             range = readxl::cell_cols("A:M")),
-        .id = "dataset") %>% 
-  #get the year from the dataset name - use some regular expressions
-  mutate(year = str_extract(dataset, pattern ="[0-9]+" )) %>% 
-  # Do some cleaning 
-  janitor::clean_names() %>% # the column names
-  # remove no saps score and no info on death
-  filter(!is.na(saps_ii),
-         !is.na(outcome_at_icu_discharge)) %>% 
-  mutate(death = if_else(outcome_at_icu_discharge == "Alive", 0, 1)) %>% 
-  # Select relevant variables only
-  select(year,death, saps_ii, type_of_admision) 
+dta <- readRDS(here::here(location, "dta.rds"))
 
 ```
 
@@ -94,7 +70,7 @@ Here is a bit of an output
 
 ```{r}
 
-all_data %>% 
+dta %>% 
   head(10) %>% 
   knitr::kable()
 ```
@@ -105,8 +81,8 @@ Lets aggregate by year, the observed mortality, and the median SAPS II score
 
 ```{r aggregation}
 
-  all_data_aggr = 
-  all_data %>% 
+  dta_aggr = 
+  dta %>% 
     group_by(year) %>% 
     summarise(n = n(),
               obs_mortality = sum(death),
@@ -115,7 +91,7 @@ Lets aggregate by year, the observed mortality, and the median SAPS II score
               med_saps = median(saps_ii)
               ) 
 
-  all_data_aggr %>% knitr::kable()
+  dta_aggr %>% knitr::kable()
 
 ```
 
@@ -146,7 +122,7 @@ Now lets use our function `predict_mortality` to calculate the predicted mortali
 ```{r}
 
   smr_table = 
-  all_data_aggr %>% 
+  dta_aggr %>% 
     mutate(pred_mortality_rate = predict_mortality(med_saps),
            # get expecte counts of deaths
            pred_mortality = pred_mortality_rate * n,
@@ -206,7 +182,3 @@ smr_table %>%
   knitr::kable(digits = 2)
 
 ```
-
-
-Hope you liked it
-
