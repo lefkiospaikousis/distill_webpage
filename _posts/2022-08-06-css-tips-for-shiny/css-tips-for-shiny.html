@@ -1542,24 +1542,21 @@ github page</a></p>
 <h3 id="center-a-button-horizontaly">Center a button (horizontaly)</h3>
 <p>OMG.. how many times I need to search for this</p>
 <p><code>actionButton("go", "Go", style = "display:block; margin:0 auto")</code></p>
-<p>This is the
-<a href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and" target="_blank">inline</a>
-style.</p>
-<p>The best is to use the
-<a href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow.-,File%2Dbased%20CSS,-/*%20Get%20a%20fancy" target="_blank">File-based
-CSS</a></p>
+<p>This is the <a
+href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and">inline
+style</a>.</p>
+<p>The best is to use the <a
+href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow">File-based</a>
+CSS</p>
 <p>Let’s say we add a class to the button called <code>.center</code>
 (or whatever class name you want)</p>
-<pre><code>actionButton(&quot;go&quot;, &quot;Go&quot;, class = &quot;.center&#39;)
-</code></pre>
+<pre><code>actionButton(&quot;go&quot;, &quot;Go&quot;, class = &quot;.center&#39;)</code></pre>
 <p>and on the CSS file, we add:</p>
-<pre><code>
-.center{
+<pre><code>.center{
   
   display:block; 
   margin: 0 auto;
-}
-</code></pre>
+}</code></pre>
 <p>To find out how to center both horizontaly and vertically, <a
 href="https://sebhastian.com/css-center-button/">visit this</a></p>
 <h3 id="section"></h3>

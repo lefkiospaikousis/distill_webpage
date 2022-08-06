@@ -16,19 +16,17 @@ output:
     self_contained: false
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+Here I will outline a collection of tips for using CSS to tweak the UI of a shiny app.
 
-Here I will outline a collection of tips for using CSS to tweak the UI of a shiny app.   
-
-I find myself looking on Google for the same things, over and over again, so I decided to create a post to outline all the tips and tricks or resources when I want to do something with CSS on my Shiny app. 
+I find myself looking on Google for the same things, over and over again, so I decided to create a post to outline all the tips and tricks or resources when I want to do something with CSS on my Shiny app.
 
 I also hope that other people will benefit from this.
 
-The code for all the examples can be found on the [posts' github page](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-08-06-css-tips-for-shiny)    
+The code for all the examples can be found on the [posts' github page](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-08-06-css-tips-for-shiny)
 
 ### Center a button (horizontaly)
 
@@ -36,33 +34,22 @@ OMG.. how many times I need to search for this
 
 `actionButton("go", "Go", style = "display:block; margin:0 auto")`
 
-This is the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and" target="_blank">inline</a> style.    
+This is the [inline style](https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and).
 
-The best is to use the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow.-,File%2Dbased%20CSS,-/*%20Get%20a%20fancy" target="_blank">File-based CSS</a>
+The best is to use the [File-based](https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow) CSS
 
-Let's say we add a class to the button called `.center` (or whatever class name you want)    
+Let's say we add a class to the button called `.center` (or whatever class name you want)
 
+    actionButton("go", "Go", class = ".center')
 
-```
-actionButton("go", "Go", class = ".center')
+and on the CSS file, we add:
 
-```
-and on the CSS file, we add:   
-
-```
-
-.center{
-  
-  display:block; 
-  margin: 0 auto;
-}
-
-````
+    .center{
+      
+      display:block; 
+      margin: 0 auto;
+    }
 
 To find out how to center both horizontaly and vertically, [visit this](https://sebhastian.com/css-center-button/)
 
-
-###
-
-
-
+### 
