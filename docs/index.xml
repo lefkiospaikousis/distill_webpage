@@ -12,7 +12,8 @@
       <title>CSS tips for Shiny</title>
       <dc:creator>Lefkios  Paikousis</dc:creator>
       <link>https://lefkiospaikousis.netlify.app/posts/2022-08-06-css-tips-for-shiny</link>
-      <description>A short description of the post.</description>
+      <description>A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions
+I mostly look for when building shiny apps and want to improve the UI</description>
       <category>CSS</category>
       <category>Shiny</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2022-08-06-css-tips-for-shiny</guid>

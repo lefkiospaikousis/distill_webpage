@@ -90,7 +90,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>CSS tips for Shiny</title>
 
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions&#10;I mostly look for when building shiny apps and want to improve the UI"/>
 
 
   <!--  https://schema.org/Article -->
@@ -101,19 +101,19 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="CSS tips for Shiny"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions&#10;I mostly look for when building shiny apps and want to improve the UI"/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="CSS tips for Shiny"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:description" content="A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions&#10;I mostly look for when building shiny apps and want to improve the UI"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CSS tips for Shiny"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["CSS","Shiny"]},{"type":"character","attributes":{},"value":["2022-08-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CSS tips for Shiny"]},{"type":"character","attributes":{},"value":["A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions\nI mostly look for when building shiny apps and want to improve the UI\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Lefkios  Paikousis"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/lefkios/"]}]}]},{"type":"character","attributes":{},"value":["CSS","Shiny"]},{"type":"character","attributes":{},"value":["2022-08-06"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1489,7 +1489,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"CSS tips for Shiny","description":"A short description of the post.","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://www.linkedin.com/in/lefkios/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-08-06T00:00:00.000+03:00","citationText":"Paikousis, 2022"}
+{"title":"CSS tips for Shiny","description":"A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions\nI mostly look for when building shiny apps and want to improve the UI","authors":[{"author":"Lefkios  Paikousis","authorURL":"https://www.linkedin.com/in/lefkios/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-08-06T00:00:00.000+03:00","citationText":"Paikousis, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1506,7 +1506,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="dt-tag">Shiny</div>
 </div>
 <!--/radix_placeholder_categories-->
-<p><p>A short description of the post.</p></p>
+<p><p>A collection of tips/ tricks for using CSS to tweak the UI of a
+shiny app. These are solutions I mostly look for when building shiny
+apps and want to improve the UI</p></p>
 </div>
 
 <div class="d-byline">
@@ -1521,8 +1523,10 @@ class="uri">https://www.linkedin.com/in/lefkios/</a>
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#center-a-button" id="toc-center-a-button">Center a
-button</a></li>
+<li><a href="#center-a-button-horizontaly"
+id="toc-center-a-button-horizontaly">Center a button
+(horizontaly)</a></li>
+<li><a href="#section" id="toc-section"></a></li>
 </ul>
 </nav>
 </div>
@@ -1532,9 +1536,11 @@ UI of a shiny app.</p>
 again, so I decided to create a post to outline all the tips and tricks
 or resources when I want to do something with CSS on my Shiny app.</p>
 <p>I also hope that other people will benefit from this.</p>
-<h3 id="center-a-button">Center a button</h3>
+<p>The code for all the examples can be found on the <a
+href="https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-08-06-css-tips-for-shiny">posts’
+github page</a></p>
+<h3 id="center-a-button-horizontaly">Center a button (horizontaly)</h3>
 <p>OMG.. how many times I need to search for this</p>
-<p>tl;dr</p>
 <p><code>actionButton("go", "Go", style = "display:block; margin:0 auto")</code></p>
 <p>This is the
 <a href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and" target="_blank">inline</a>
@@ -1542,8 +1548,8 @@ style.</p>
 <p>The best is to use the
 <a href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow.-,File%2Dbased%20CSS,-/*%20Get%20a%20fancy" target="_blank">File-based
 CSS</a></p>
-<p>Let’s say we add a class to the button called
-<code>.center</code></p>
+<p>Let’s say we add a class to the button called <code>.center</code>
+(or whatever class name you want)</p>
 <pre><code>actionButton(&quot;go&quot;, &quot;Go&quot;, class = &quot;.center&#39;)
 </code></pre>
 <p>and on the CSS file, we add:</p>
@@ -1554,6 +1560,9 @@ CSS</a></p>
   margin: 0 auto;
 }
 </code></pre>
+<p>To find out how to center both horizontaly and vertically, <a
+href="https://sebhastian.com/css-center-button/">visit this</a></p>
+<h3 id="section"></h3>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

@@ -1,7 +1,8 @@
 ---
 title: "CSS tips for Shiny"
 description: |
-  A short description of the post.
+  A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions
+  I mostly look for when building shiny apps and want to improve the UI
 author:
   - name: Lefkios  Paikousis
     url: https://www.linkedin.com/in/lefkios/
@@ -27,12 +28,11 @@ I find myself looking on Google for the same things, over and over again, so I d
 
 I also hope that other people will benefit from this.
 
+The code for all the examples can be found on the [posts' github page](https://github.com/lefkiospaikousis/distill_webpage/tree/master/_posts/2022-08-06-css-tips-for-shiny)    
 
-### Center a button
+### Center a button (horizontaly)
 
 OMG.. how many times I need to search for this
-
-tl;dr
 
 `actionButton("go", "Go", style = "display:block; margin:0 auto")`
 
@@ -40,7 +40,8 @@ This is the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20
 
 The best is to use the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow.-,File%2Dbased%20CSS,-/*%20Get%20a%20fancy" target="_blank">File-based CSS</a>
 
-Let's say we add a class to the button called `.center`    
+Let's say we add a class to the button called `.center` (or whatever class name you want)    
+
 
 ```
 actionButton("go", "Go", class = ".center')
@@ -58,9 +59,10 @@ and on the CSS file, we add:
 
 ````
 
+To find out how to center both horizontaly and vertically, [visit this](https://sebhastian.com/css-center-button/)
 
 
-
+###
 
 
 
