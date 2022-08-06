@@ -1,0 +1,66 @@
+---
+title: "CSS tips for Shiny"
+description: |
+  A short description of the post.
+author:
+  - name: Lefkios  Paikousis
+    url: https://www.linkedin.com/in/lefkios/
+categories: 
+  - CSS
+  - Shiny
+date: 2022-08-06
+output:
+  distill::distill_article:
+    toc: true
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+Here I will outline a collection of tips for using CSS to tweak the UI of a shiny app.   
+
+I find myself looking on Google for the same things, over and over again, so I decided to create a post to outline all the tips and tricks or resources when I want to do something with CSS on my Shiny app. 
+
+I also hope that other people will benefit from this.
+
+
+### Center a button
+
+OMG.. how many times I need to search for this
+
+tl;dr
+
+`actionButton("go", "Go", style = "display:block; margin:0 auto")`
+
+This is the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=pros%20and%20cons.-,Inline%20CSS,-The%20quickest%20and" target="_blank">inline</a> style.    
+
+The best is to use the <a href="https://shiny.rstudio.com/articles/css.html#:~:text=file%2Dbased%20workflow.-,File%2Dbased%20CSS,-/*%20Get%20a%20fancy" target="_blank">File-based CSS</a>
+
+Let's say we add a class to the button called `.center`    
+
+```
+actionButton("go", "Go", class = ".center')
+
+```
+and on the CSS file, we add:   
+
+```
+
+.center{
+  
+  display:block; 
+  margin: 0 auto;
+}
+
+````
+
+
+
+
+
+
+

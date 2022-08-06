@@ -7,7 +7,17 @@
     <description>A blog about R and data analysis by Lefkios Paikousis
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 26 Jul 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>CSS tips for Shiny</title>
+      <dc:creator>Lefkios  Paikousis</dc:creator>
+      <link>https://lefkiospaikousis.netlify.app/posts/2022-08-06-css-tips-for-shiny</link>
+      <description>A short description of the post.</description>
+      <category>CSS</category>
+      <category>Shiny</category>
+      <guid>https://lefkiospaikousis.netlify.app/posts/2022-08-06-css-tips-for-shiny</guid>
+      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>How fast is reading .parquet files with {arrow}</title>
       <dc:creator>Lefkios  Paikousis</dc:creator>
@@ -20,7 +30,7 @@
       <category>data.table</category>
       <category>readr</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow</guid>
-      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 27 Jul 2022 00:00:00 +0000</pubDate>
       <media:content url="https://lefkiospaikousis.netlify.app/posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/how-fast-is-arrow_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>

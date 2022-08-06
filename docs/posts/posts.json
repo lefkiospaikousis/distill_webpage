@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2022-08-06-css-tips-for-shiny/",
+    "title": "CSS tips for Shiny",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Lefkios  Paikousis",
+        "url": "https://www.linkedin.com/in/lefkios/"
+      }
+    ],
+    "date": "2022-08-06",
+    "categories": [
+      "CSS",
+      "Shiny"
+    ],
+    "contents": "\r\n\r\nContents\r\nCenter a\r\nbutton\r\n\r\nHere I will outline a collection of tips for using CSS to tweak the\r\nUI of a shiny app.\r\nI find myself looking on Google for the same things, over and over\r\nagain, so I decided to create a post to outline all the tips and tricks\r\nor resources when I want to do something with CSS on my Shiny app.\r\nI also hope that other people will benefit from this.\r\nCenter a button\r\nOMG.. how many times I need to search for this\r\ntl;dr\r\nactionButton(\"go\", \"Go\", style = \"display:block; margin:0 auto\")\r\nThis is the\r\ninline\r\nstyle.\r\nThe best is to use the\r\nFile-based\r\nCSS\r\nLet’s say we add a class to the button called\r\n.center\r\nactionButton(\"go\", \"Go\", class = \".center')\r\n\r\nand on the CSS file, we add:\r\n\r\n.center{\r\n  \r\n  display:block; \r\n  margin: 0 auto;\r\n}\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-08-06T14:49:10+03:00",
+    "input_file": "css-tips-for-shiny.knit.md"
+  },
+  {
     "path": "posts/2022-07-27-how-fast-is-reading-parquet-files-with-arrow/",
     "title": "How fast is reading .parquet files with {arrow}",
     "description": "We compare reading times of csv files with different packages such as {readr},\n{data.table} and {arrow}. We also compare the reading time of a parquet data format with {arrow}.",
