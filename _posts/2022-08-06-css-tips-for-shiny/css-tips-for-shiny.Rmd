@@ -52,4 +52,40 @@ and on the CSS file, we add:
 
 To find out how to center both horizontaly and vertically, [visit this](https://sebhastian.com/css-center-button/)
 
-### 
+### Scroll bar in Modal Dialogue
+
+CSS ans SO to the rescue. [See here](https://stackoverflow.com/a/25874635/8689932)
+
+In the CSS file, we add:
+
+    .modal-dialog { 
+      overflow-y: initial;
+    }
+
+    .modal-body{
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+Note that the classes names are __exactly__ these (`modal-dialog`, `modal-body`.   
+when you type in the console:
+
+`shiny::modalDialog()`
+
+You can see that these are the classes
+
+```{r echo=FALSE}
+print(shiny::modalDialog())
+```
+
+__Questions:__
+
+- How to I apply this to a single modal?
+- How do I make the `max-height` property variable to the screen size? (since I assume this is for desktops)
+
+
+
+
+
+
+
