@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2022-09-25-read-cran-logs-for-r-package-downloads/",
+    "title": "Read CRAN logs for R package downloads",
+    "description": "Download daily download logs for R packages",
+    "author": [
+      {
+        "name": "Lefkios  Paikousis",
+        "url": "https://www.linkedin.com/in/lefkios/"
+      }
+    ],
+    "date": "2022-09-25",
+    "categories": [
+      "CRAN",
+      "logs",
+      "R-packages"
+    ],
+    "contents": "\r\n\r\nContents\r\nDownload {shiny} daily\r\ndownload counts\r\nHow R is\r\ndoing?\r\n\r\nDownload {shiny} daily\r\ndownload counts\r\nFor a recent presentation for the {shiny} package, I\r\nneeded a plot showing the number of downloads since first {shiny} was\r\nreleased.\r\nThe {cranlogs}\r\npackage came in handy.\r\nNote that this package only downloads from the\r\nRStudio CRAN mirror. RStudio mirror is not the only CRAN mirror.\r\nAccording to the package documentation, “it’s a popular one: it’s\r\nthe default choice for RStudio users. The actual number of downloads\r\nover all CRAN mirrors is unknown.”\r\n\r\nThe libraries\r\n\r\n\r\nlibrary(cranlogs)\r\nlibrary(scales)\r\nlibrary(glue)\r\nlibrary(tidyverse)\r\n\r\n\r\n\r\n\r\nshiny_logs <- cran_downloads(\"shiny\", from = \"2013-01-01\", to = \"2022-09-19\")\r\n\r\nshiny_logs <- shiny_logs %>% filter(count>0) \r\n\r\nshiny_logs %>%\r\n  as_tibble() %>% \r\n  mutate(total = cumsum(count)) %>% # in case we need the total downloads up a point\r\n  ggplot(\r\n    aes(x = date, y = count)\r\n  )+\r\n  geom_line()+\r\n  scale_y_continuous(labels = scales::label_number(suffix = \"K\", scale = 1e-3))+\r\n  labs(y = \"\", x = \"Year\", \r\n       title = \"Number of daily downloads for the Shiny package in R\",\r\n       subtitle = \r\n         glue::glue(\"Period: {format(min(shiny_logs$date), '%d/%m/%Y')} - {format(max(shiny_logs$date),'%d/%m/%Y')}\"),\r\n       caption = \"Counts extracted using the {cranlogs} package\\\r\n       RSTUDIO CRAN package mirror at http://cran-logs.rstudio.com.\"\r\n       )+\r\n  theme_bw()\r\n\r\n\r\n\r\nHow R is doing?\r\nWhen downloading download-counts for R, we get the daily counts for\r\nevery version of R and for every operating system. Hence, the table\r\ncould be really big (and take some time to download). This is a sample\r\nof the last available day’s downloads. Notice the version\r\nand the os column.\r\n\r\n\r\ncran_downloads(\"R\") %>% head()\r\n\r\n        date version  os count\r\n1 2022-09-22   4.2.1 win  8473\r\n2 2022-09-22  2.12.0 src     1\r\n3 2022-09-22   3.1.0 osx     1\r\n4 2022-09-22   2.9.0 src     1\r\n5 2022-09-22   3.4.4 win     3\r\n6 2022-09-22   2.3.1 src     1\r\n\r\n\r\nLet’s see only the last 6 months or so\r\n\r\n\r\nr_logs <- cran_downloads(\"R\", from = Sys.Date() - 6*30, to = Sys.Date())\r\n\r\nr_logs %>% \r\n  as_tibble() %>% \r\n  group_by(date) %>% \r\n  summarise(count = sum(count)) %>% \r\n  ungroup() %>% \r\n  mutate(total = cumsum(count)) %>% # in case we need the total downloads up a point\r\n  ggplot(\r\n    aes(x = date, y = count)\r\n  )+\r\n  scale_x_date(date_breaks = \"2 weeks\", labels = function(x) format(x, \"%d/%m\"))+\r\n  geom_line()+\r\n  scale_y_continuous(labels = scales::label_number(suffix = \"K\", scale = 1e-3))+\r\n  labs(y = \"\", x = \"\", \r\n       title = glue(\"R daily downloads since {format(min(r_logs$date), '%d/%m/%Y')}\"),\r\n       subtitle = glue::glue(\"Period: {format(min(r_logs$date), '%d/%m/%Y')} - {format(max(r_logs$date), '%d/%m/%Y')}\"),\r\n       caption = \"Counts extracted using the {cranlogs} package\\\r\n       RSTUDIO CRAN package mirror at http://cran-logs.rstudio.com.\"\r\n  )+\r\n  theme_bw()\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2022-09-25-read-cran-logs-for-r-package-downloads/read-cran-logs-for-r-package-downloads_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2022-09-25T13:27:30+03:00",
+    "input_file": "read-cran-logs-for-r-package-downloads.knit.md",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2022-08-06-css-tips-for-shiny/",
     "title": "CSS tips for Shiny",
     "description": "A collection of tips/ tricks for using CSS to tweak the UI of a shiny app. These are solutions\nI mostly look for when building shiny apps and want to improve the UI",

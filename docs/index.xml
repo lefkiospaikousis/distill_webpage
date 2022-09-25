@@ -7,7 +7,19 @@
     <description>A blog about R and data analysis by Lefkios Paikousis
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 05 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Read CRAN logs for R package downloads</title>
+      <dc:creator>Lefkios  Paikousis</dc:creator>
+      <link>https://lefkiospaikousis.netlify.app/posts/2022-09-25-read-cran-logs-for-r-package-downloads</link>
+      <description>Download daily download logs for R packages</description>
+      <category>CRAN</category>
+      <category>logs</category>
+      <category>R-packages</category>
+      <guid>https://lefkiospaikousis.netlify.app/posts/2022-09-25-read-cran-logs-for-r-package-downloads</guid>
+      <pubDate>Sat, 24 Sep 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://lefkiospaikousis.netlify.app/posts/2022-09-25-read-cran-logs-for-r-package-downloads/read-cran-logs-for-r-package-downloads_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>CSS tips for Shiny</title>
       <dc:creator>Lefkios  Paikousis</dc:creator>
@@ -17,7 +29,7 @@ I mostly look for when building shiny apps and want to improve the UI</descripti
       <category>CSS</category>
       <category>Shiny</category>
       <guid>https://lefkiospaikousis.netlify.app/posts/2022-08-06-css-tips-for-shiny</guid>
-      <pubDate>Fri, 05 Aug 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 06 Aug 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>How fast is reading .parquet files with {arrow}</title>
